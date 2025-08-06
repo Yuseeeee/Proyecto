@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BotonEmpezar : MonoBehaviour
 {
+    public GameObject comenzar;
     // Start is called before the first frame update
     void Start()
     {
