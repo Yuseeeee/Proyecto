@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CambiarEscena : MonoBehaviour
 {
-    public GameObject ControladorEscena;
-    public void CambiarDeEscena(string Inicio)
+    public void CambiarDeEscena()
     {
-        SceneManager.LoadScene(Inicio);
+        SceneManager.LoadScene("Inicio");
     }
 }
