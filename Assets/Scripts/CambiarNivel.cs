@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class cambiarNivel : MonoBehaviour
+public class CambiarNivel : MonoBehaviour
 {
-    public static cambiarNivel instancia;
+    public static CambiarNivel instancia;
 
-    public string ultimoNivelCompletado = "";
+     string ultimoNivelCompletado = "";
 
     // Lista de misiones según el progreso
     public string[] misiones; 
@@ -16,7 +16,7 @@ public class cambiarNivel : MonoBehaviour
     // 0: "Andá a la casa azul para ir al próximo nivel"
     // 1: "Andá a la casa roja para ir al próximo nivel"
     // 2: "Andá a la casa verde para ir al próximo nivel"
-    // 3: "Misión completada"
+    // 3: "Misión completada"   
 
     void Awake()
     {

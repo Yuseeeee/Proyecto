@@ -12,9 +12,9 @@ public class NivelCasa : MonoBehaviour
     {
         if (other.CompareTag("Jugador"))
         {
-            if (cambiarNivel.instancia != null)
+            if (CambiarNivel.instancia != null)
             {
-                cambiarNivel.instancia.MarcarNivelCompletado(nombreNivel);
+                CambiarNivel.instancia.MarcarNivelCompletado(nombreNivel);
             }
 
             SceneManager.LoadScene(nombreEscenaDestino);
