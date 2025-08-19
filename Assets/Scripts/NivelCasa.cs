@@ -1,23 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NivelCasa : MonoBehaviour
 {
-    public string nombreEscenaDestino; // Escena a la que lleva la casa
-    public string nombreNivel;         // Ej: "Nivel 1"
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Jugador"))
-        {
-            if (CambiarNivel.instancia != null)
-            {
-                CambiarNivel.instancia.MarcarNivelCompletado(nombreNivel);
-            }
 
-            SceneManager.LoadScene(nombreEscenaDestino);
+        Debug.Log("¡Trigger detectado! El objeto que entró es: " + other.gameObject.name);
+
+        if (other.gameObject.name == "SimpleFPSController")
+        {
+            Debug.Log("¡Confirmado! Es el jugador. Cargando escena...");
+
+            string nombreDelCubo = gameObject.name;
+            
+            switch (nombreDelCubo)
+            {
+                case "cubo azul": 
+                    SceneManager.LoadScene("NivelUno");
+                    break;
+
+                case "cubo rojo": 
+                    SceneManager.LoadScene("NivelDos");
+                    break;
+                
+                case "cubo amarillo": 
+                    SceneManager.LoadScene("NivelTres");
+                    break;
+
+                case "cubo verde": 
+                    SceneManager.LoadScene("NivelCuatro");
+                    break;
+            }
         }
     }
 }
