@@ -6,18 +6,16 @@ public class NivelCasa : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log("¡Trigger detectado! El objeto que entró es: " + other.gameObject.name);
-
         if (other.gameObject.name == "SimpleFPSController")
         {
-            Debug.Log("¡Confirmado! Es el jugador. Cargando escena...");
+            Debug.Log("Cargando escena...");
 
             string nombreDelCubo = gameObject.name;
             
             switch (nombreDelCubo)
             {
                 case "cubo azul": 
-                    SceneManager.LoadScene("NivelUno");
+                    SceneManager.LoadScene("NivelTres");
                     break;
 
                 case "cubo rojo": 
@@ -25,7 +23,7 @@ public class NivelCasa : MonoBehaviour
                     break;
                 
                 case "cubo amarillo": 
-                    SceneManager.LoadScene("NivelTres");
+                    SceneManager.LoadScene("NivelUno");
                     break;
 
                 case "cubo verde": 
