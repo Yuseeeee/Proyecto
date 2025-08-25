@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class ObjetivoEnemigos : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
-    public Transform player;
+    [SerializeField] public Transform player;
     // Start is called before the first frame update
     void Awake()
     {
