@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DañoEnemigos : MonoBehaviour
 {
-    public int danio = 20; 
+     public int danio = 20; 
+    
     private float tiempoEntreAtaques = 1.0f; 
     private float proximoAtaque = 0f;
 
@@ -12,15 +13,17 @@ public class DañoEnemigos : MonoBehaviour
     {
         if (Time.time > proximoAtaque)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Jugador"))
             {
-                Debug.Log("Enemigo tocó al jugador. Haciendo daño.");
-                
                 VidaPersonaje vidaDelJugador = collision.gameObject.GetComponent<VidaPersonaje>();
 
                 if (vidaDelJugador != null)
                 {
-                    vidaDelJugador.RecibirDaño(danio);
+                    vidaDelJugador.RecibirDanio(danio);
+                }
+                else
+                {
+                    Debug.LogError("El objeto '" + collision.gameObject.name + "' no tiene el script 'VidaPersonaje'.");
                 }
 
                 proximoAtaque = Time.time + tiempoEntreAtaques;
