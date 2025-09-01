@@ -15,7 +15,7 @@ public class NivelCasa : MonoBehaviour
             switch (nombreDelCubo)
             {
                 case "cubo azul": 
-                    SceneManager.LoadScene("NivelTres");
+                    SceneManager.LoadScene("NivelUno");
                     break;
 
                 case "cubo rojo": 
@@ -23,7 +23,7 @@ public class NivelCasa : MonoBehaviour
                     break;
                 
                 case "cubo amarillo": 
-                    SceneManager.LoadScene("NivelUno");
+                    SceneManager.LoadScene("NivelTres");
                     break;
 
                 case "cubo verde": 
