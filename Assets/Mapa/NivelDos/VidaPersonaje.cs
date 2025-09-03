@@ -10,9 +10,14 @@ public class VidaPersonaje : MonoBehaviour
     public int vidaActual;
     public Image barraDeVida;
 
-    void Awake()
+    void Start()
     {
         vidaActual = vidaMaxima;
+        
+        if (barraDeVida != null)
+        {
+            barraDeVida.fillAmount = 1f; 
+        }
     }
 
     public void RecibirDanio(int cantidadDeDanio)
@@ -23,10 +28,6 @@ public class VidaPersonaje : MonoBehaviour
         if (barraDeVida != null)
         {
             barraDeVida.fillAmount = (float)vidaActual / vidaMaxima;
-        }
-        else
-        {
-            Debug.LogWarning("La barra de vida no está asignada en el Inspector.");
         }
 
         if (vidaActual <= 0)

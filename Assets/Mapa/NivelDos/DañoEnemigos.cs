@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DañoEnemigos : MonoBehaviour
 {
-     public int danio = 20; 
+      private int danio = 10; 
     
     private float tiempoEntreAtaques = 1.0f; 
     private float proximoAtaque = 0f;
