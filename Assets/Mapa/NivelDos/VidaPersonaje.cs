@@ -8,26 +8,29 @@ public class VidaPersonaje : MonoBehaviour
 {
     public int vidaMaxima = 100;
     public int vidaActual;
-    public Image barraDeVida;
+    public Slider sliderVida;
 
     void Start()
     {
         vidaActual = vidaMaxima;
         
-        if (barraDeVida != null)
+         if (sliderVida != null)
         {
-            barraDeVida.fillAmount = 1f; 
+            sliderVida.maxValue = vidaMaxima;
+            sliderVida.minValue = 0;
+            sliderVida.value = vidaActual;
         }
     }
+    
 
     public void RecibirDanio(int cantidadDeDanio)
     {
         vidaActual -= cantidadDeDanio;
         Debug.Log("¡Daño RECIBIDO! Vida restante: " + vidaActual);
 
-        if (barraDeVida != null)
+        if (sliderVida != null)
         {
-            barraDeVida.fillAmount = (float)vidaActual / vidaMaxima;
+            sliderVida.value = vidaActual;
         }
 
         if (vidaActual <= 0)
