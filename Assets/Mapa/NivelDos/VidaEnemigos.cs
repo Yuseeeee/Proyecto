@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class VidaEnemigos : MonoBehaviour
 {
-    public int vidaMaxima = 100;
+    public int Hp = 100;
     public int vidaActual;
+    public int danioGolpe;
+    public animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        vidaActual = vidaMaxima;
+
+   
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+    private void OnTriggerEnter(Colllider other)
+    {
+        if(other.GameObject.Tag == "Golpe")
+        {
+            if (anim != null)
+            {
+                anim.play ("Enemigo1")
+            }
+        }
     }
 }
