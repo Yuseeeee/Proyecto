@@ -6,12 +6,12 @@ public class VidaEnemigos : MonoBehaviour
 {
     public int Hp = 100;
     public int vidaActual;
-    public int danioGolpe;
-    public animator anim;
+    public int danioPuño;
+    public int danioPatada;
     // Start is called before the first frame update
     void Start()
     {
-        vidaActual = vidaMaxima;
+        vidaActual = Hp;
 
    
     }
@@ -20,14 +20,28 @@ public class VidaEnemigos : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Colllider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.GameObject.Tag == "Golpe")
+        if(other.GameObject.Tag == "Puño")
         {
             if (anim != null)
             {
-                anim.play ("Enemigo1")
+                anim.play ("GolpeEnemigo");
             }
+            Hp -= danioGolpe;
+        }
+        if(other.GameObject.Tag == "Patada")
+        {
+            if (anim != null)
+            {
+                anim.play ("GolpeEnemigo");
+            }
+            Hp -= danioGolpe;
+        }
+
+        if (hp <= 0)
+        {
+            Destroy(GameObject);
         }
     }
 }

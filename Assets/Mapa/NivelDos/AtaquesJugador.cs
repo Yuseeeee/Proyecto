@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class AtaqueJugador : MonoBehaviour
 {
+    int danioPuño = 10;
+    int danioPatada = 15;
     // Start is called before the first frame update
     void Start()
     {
