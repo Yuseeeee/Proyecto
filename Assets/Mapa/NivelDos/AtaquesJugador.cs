@@ -1,19 +1,57 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class AtaqueJugador : MonoBehaviour
-{
-    int danioPuño = 10;
-    int danioPatada = 15;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+using UnityEngine;
 
-    // Update is called once per frame
+public class AtaquesJugador : MonoBehaviour
+{
+    public Transform puntoDeAtaque;
+    public float rangoDeAtaque = 0.8f; 
+    public LayerMask capasEnemigas; 
+    public int danio = 25;
+
+    private bool atacando = false;
+    private float cooldownAtaque = 0.5f; 
+    private float proximoAtaque = 0f;
+
+    // public Animator animator;
+
     void Update()
     {
+        if (Input.GetMouseButtonDown(0) && Time.time > proximoAtaque)
+        {
+            Atacar();
+            proximoAtaque = Time.time + cooldownAtaque;
+        }
+    }
+
+    void Atacar()
+    {
+        Debug.Log("¡Ataque!");
+        // animator.SetTrigger("Atacar");
+
         
+        // 1. Cosa invisible en el 'puntoDeAtaque'.
+        Collider[] enemigosGolpeados = Physics.OverlapSphere(puntoDeAtaque.position, rangoDeAtaque, capasEnemigas);
+
+        foreach(Collider enemigo in enemigosGolpeados)
+        {
+            Debug.Log("¡Hemos golpeado a " + enemigo.name + "!");
+
+            VidaEnemigos vidaDelEnemigo = enemigo.GetComponent<VidaEnemigos>();
+            if (vidaDelEnemigo != null)
+            {
+                vidaDelEnemigo.RecibirDanio(danio);
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (puntoDeAtaque == null)
+            return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(puntoDeAtaque.position, rangoDeAtaque);
     }
 }

@@ -1,47 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class VidaEnemigos : MonoBehaviour
 {
-    public int Hp = 100;
+    public int vidaMaxima = 100;
     public int vidaActual;
-    public int danioPuño;
-    public int danioPatada;
-    // Start is called before the first frame update
+
     void Start()
     {
-        vidaActual = Hp;
+        vidaActual = vidaMaxima;
+    }
+    
+    public void RecibirDanio(int cantidadDeDanio)
+    {
+        vidaActual -= cantidadDeDanio;
+        Debug.Log(gameObject.name + " recibió daño. Vida restante: " + vidaActual);
 
-   
+        if (vidaActual <= 0)
+        {
+            Morir();
+        }
     }
 
-    void Update()
+    void Morir()
     {
+        Debug.Log(gameObject.name + " ha sido derrotado.");
         
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.GameObject.Tag == "Puño")
-        {
-            if (anim != null)
-            {
-                anim.play ("GolpeEnemigo");
-            }
-            Hp -= danioGolpe;
-        }
-        if(other.GameObject.Tag == "Patada")
-        {
-            if (anim != null)
-            {
-                anim.play ("GolpeEnemigo");
-            }
-            Hp -= danioGolpe;
-        }
-
-        if (hp <= 0)
-        {
-            Destroy(GameObject);
-        }
+        Destroy(gameObject); 
     }
 }

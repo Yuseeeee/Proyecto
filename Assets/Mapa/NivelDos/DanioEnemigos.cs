@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DañoEnemigos : MonoBehaviour
+public class DanioEnemigos : MonoBehaviour
 {
       private int danio = 10; 
     
