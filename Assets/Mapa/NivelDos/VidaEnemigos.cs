@@ -1,22 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI; 
+﻿using UnityEngine;
 
 public class VidaEnemigos : MonoBehaviour
 {
     public int vidaMaxima = 100;
     public int vidaActual;
 
+    public Color colorVidaLlena = Color.white; 
+    public Color colorVidaMedia = Color.yellow; 
+    public Color colorVidaBaja = Color.red; 
+
+    private Renderer rend; 
     void Start()
     {
         vidaActual = vidaMaxima;
+
+        rend = GetComponentInChildren<Renderer>();
+
+        if (rend != null)
+        {
+            rend.material.color = colorVidaLlena;
+        }
     }
     
     public void RecibirDanio(int cantidadDeDanio)
     {
         vidaActual -= cantidadDeDanio;
-        Debug.Log(gameObject.name + " recibió daño. Vida restante: " + vidaActual);
+
+        ActualizarColor();
 
         if (vidaActual <= 0)
         {
@@ -24,10 +34,27 @@ public class VidaEnemigos : MonoBehaviour
         }
     }
 
+    void ActualizarColor()
+    {
+        if (rend == null) return;
+        float porcentajeDeVida = (float)vidaActual / vidaMaxima;
+
+        if (porcentajeDeVida > 0.66f)
+        {
+            rend.material.color = colorVidaLlena;
+        }
+        else if (porcentajeDeVida > 0.33f)
+        {
+            rend.material.color = colorVidaMedia;
+        }
+        else
+        {
+            rend.material.color = colorVidaBaja;
+        }
+    }
+
     void Morir()
     {
-        Debug.Log(gameObject.name + " ha sido derrotado.");
-        
         Destroy(gameObject); 
     }
 }
