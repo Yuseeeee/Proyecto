@@ -1316,11 +1316,26 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2072720408}
-    - target: {fileID: 3211931696435371010, guid: d136aed46c1fb5a489205851bfeb8a84,
+    - target: {fileID: 1093437864533969194, guid: d136aed46c1fb5a489205851bfeb8a84,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3c65c0873aea433409c6dd3a9ce676c1, type: 2}
+      propertyPath: m_Name
+      value: AuraDeDano
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085193631111735185, guid: d136aed46c1fb5a489205851bfeb8a84,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4067771
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085193631111735185, guid: d136aed46c1fb5a489205851bfeb8a84,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.3906236
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085193631111735185, guid: d136aed46c1fb5a489205851bfeb8a84,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4392343
+      objectReference: {fileID: 0}
     - target: {fileID: 5744016228520375793, guid: d136aed46c1fb5a489205851bfeb8a84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1375,6 +1390,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267366990296902992, guid: d136aed46c1fb5a489205851bfeb8a84,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8359624836266942918, guid: d136aed46c1fb5a489205851bfeb8a84,
         type: 3}
@@ -2873,7 +2893,7 @@ Transform:
   m_GameObject: {fileID: 2072720404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.5852, y: -2.14, z: 4.7220583}
-  m_LocalScale: {x: 1.1109066, y: 2.2468252, z: 1}
+  m_LocalScale: {x: 1.1109066, y: 1.3328842, z: 1}
   m_Children: []
   m_Father: {fileID: 119018033}
   m_RootOrder: 0
@@ -2922,7 +2942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puntoDeAtaque: {fileID: 1588946301}
-  rangoDeAtaque: 2
+  rangoDeAtaque: 1.5
   capasEnemigas:
     serializedVersion: 2
     m_Bits: 512

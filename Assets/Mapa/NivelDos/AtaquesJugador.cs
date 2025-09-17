@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 
 public class AtaquesJugador : MonoBehaviour
 {
@@ -11,14 +10,14 @@ public class AtaquesJugador : MonoBehaviour
     public int danio = 25;
 
     private bool atacando = false;
-    private float cooldownAtaque = 0.5f; 
+    private float cooldownAtaque = 0.2f; 
     private float proximoAtaque = 0f;
 
     // public Animator animator;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Time.time > proximoAtaque)
+        if (Input.GetKeyDown(KeyCode.L) && Time.time > proximoAtaque)
         {
             Atacar();
             proximoAtaque = Time.time + cooldownAtaque;
