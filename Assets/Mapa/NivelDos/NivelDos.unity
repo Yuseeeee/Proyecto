@@ -1316,26 +1316,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2072720408}
-    - target: {fileID: 1093437864533969194, guid: d136aed46c1fb5a489205851bfeb8a84,
-        type: 3}
-      propertyPath: m_Name
-      value: AuraDeDano
-      objectReference: {fileID: 0}
-    - target: {fileID: 3085193631111735185, guid: d136aed46c1fb5a489205851bfeb8a84,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.4067771
-      objectReference: {fileID: 0}
-    - target: {fileID: 3085193631111735185, guid: d136aed46c1fb5a489205851bfeb8a84,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.3906236
-      objectReference: {fileID: 0}
-    - target: {fileID: 3085193631111735185, guid: d136aed46c1fb5a489205851bfeb8a84,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.4392343
-      objectReference: {fileID: 0}
     - target: {fileID: 5744016228520375793, guid: d136aed46c1fb5a489205851bfeb8a84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1390,11 +1370,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267366990296902992, guid: d136aed46c1fb5a489205851bfeb8a84,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8359624836266942918, guid: d136aed46c1fb5a489205851bfeb8a84,
         type: 3}
