@@ -260,8 +260,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 803740727}
-        m_MethodName: CambiarDeEscena
+      - m_Target: {fileID: 803740725}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -415,7 +415,7 @@ RectTransform:
   m_GameObject: {fileID: 749727658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3672509, y: 1.1964742, z: 1.1964742}
+  m_LocalScale: {x: 1.2004049, y: 1.1964742, z: 1.1964742}
   m_Children: []
   m_Father: {fileID: 2029288192}
   m_RootOrder: 0
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -321.44345, w: 0}
+  m_margin: {x: 0, y: 0, z: -235.76314, w: 0}
   m_textInfo:
     textComponent: {fileID: 749727660}
     characterCount: 26
