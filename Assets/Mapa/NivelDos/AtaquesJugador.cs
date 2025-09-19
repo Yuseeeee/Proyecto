@@ -17,7 +17,7 @@ public class AtaquesJugador : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L) && Time.time > proximoAtaque)
+        if (Input.GetMouseButtonDown(0) && Time.time > proximoAtaque)
         {
             Atacar();
             proximoAtaque = Time.time + cooldownAtaque;
