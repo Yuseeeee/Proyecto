@@ -9,15 +9,14 @@ public class AtaquesJugador : MonoBehaviour
     public LayerMask capasEnemigas; 
     public int danio = 25;
 
-    private bool atacando = false;
     private float cooldownAtaque = 0.2f; 
     private float proximoAtaque = 0f;
 
-    // public Animator animator;
+    public Animator animator;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Time.time > proximoAtaque)
+        if (Input.GetKeyDown(KeyCode.X) && Time.time > proximoAtaque)
         {
             Atacar();
             proximoAtaque = Time.time + cooldownAtaque;
@@ -27,13 +26,16 @@ public class AtaquesJugador : MonoBehaviour
     void Atacar()
     {
         Debug.Log("¡Ataque!");
-        // animator.SetTrigger("Atacar");
 
-        
-        // 1. Cosa invisible en el 'puntoDeAtaque'.
+        if (animator != null)
+        {
+            animator.SetTrigger("GolpeMano");
+        }
+
+        // Detectar enemigos en el rango
         Collider[] enemigosGolpeados = Physics.OverlapSphere(puntoDeAtaque.position, rangoDeAtaque, capasEnemigas);
 
-        foreach(Collider enemigo in enemigosGolpeados)
+        foreach (Collider enemigo in enemigosGolpeados)
         {
             Debug.Log("¡Hemos golpeado a " + enemigo.name + "!");
 
