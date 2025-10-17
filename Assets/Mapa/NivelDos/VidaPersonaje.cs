@@ -25,19 +25,18 @@ public class VidaPersonaje : MonoBehaviour
 
     public void RecibirDanio(int cantidadDeDanio)
     {
-        vidaActual -= cantidadDeDanio;
-        Debug.Log("¡Daño RECIBIDO! Vida restante: " + vidaActual);
+    vidaActual -= cantidadDeDanio;
+    Debug.Log("Vida actual: " + vidaActual);
 
-        if (sliderVida != null)
-        {
-            sliderVida.value = vidaActual;
-        }
-
-        if (vidaActual <= 0)
-        {
-            Morir();
-        }
+    if (sliderVida != null)
+    {
+        sliderVida.value = vidaActual;
+        Debug.Log("Slider actualizado: " + sliderVida.value);
     }
+
+    if (vidaActual <= 0) Morir();
+    }
+
 
     void Morir()
     {

@@ -90,7 +90,7 @@ public class AtaquesJugador : MonoBehaviour
         {
             Vector3 dir = (masCercano.transform.position - transform.position).normalized;
             transform.forward = new Vector3(dir.x, 0, dir.z); // gira hacia el enemigo
-            VidaEnemigos ve = masCercano.GetComponent<VidaEnemigos>();
+            VidaEnemigos ve = masCercano.GetComponentInParent<VidaEnemigos>();
             if (ve != null) ve.RecibirDanio(danioPunio);
         }
     }

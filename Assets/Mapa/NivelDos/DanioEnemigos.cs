@@ -4,30 +4,38 @@ using UnityEngine;
 
 public class DanioEnemigos : MonoBehaviour
 {
-      private int danio = 10; 
-    
-    private float tiempoEntreAtaques = 1.0f; 
+    public int danio = 10; // daño por ataque
+    public float tiempoEntreAtaques = 1.0f;
     private float proximoAtaque = 0f;
+    public float rangoAtaque = 2.0f; // distancia a la que puede golpear
+    public Transform puntoAtaque; // desde dónde dispara el raycast (opcional)
+    public Transform player; // asignar el jugador en Inspector
 
-    private void OnCollisionEnter(Collision collision)
+    void Update()
     {
-        if (Time.time > proximoAtaque)
-        {
-            if (collision.gameObject.CompareTag("Jugador"))
-            {
-                VidaPersonaje vidaDelJugador = collision.gameObject.GetComponent<VidaPersonaje>();
+        if (Time.time < proximoAtaque) return;
 
+        Vector3 origen = puntoAtaque != null ? puntoAtaque.position : transform.position;
+        Vector3 direccion = (player.position - origen).normalized;
+
+
+        RaycastHit hit;
+        if (Physics.Raycast(origen, direccion, out hit, rangoAtaque))
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                VidaPersonaje vidaDelJugador = hit.collider.GetComponent<VidaPersonaje>();
                 if (vidaDelJugador != null)
                 {
                     vidaDelJugador.RecibirDanio(danio);
-                }
-                else
-                {
-                    Debug.LogError("El objeto '" + collision.gameObject.name + "' no tiene el script 'VidaPersonaje'.");
+                    Debug.Log("¡Jugador golpeado! Vida actual: " + vidaDelJugador.vidaActual);
                 }
 
                 proximoAtaque = Time.time + tiempoEntreAtaques;
             }
         }
+
+        // Opcional: dibujar el raycast en Scene para debug
+        Debug.DrawRay(origen, direccion * rangoAtaque, Color.red);
     }
 }
