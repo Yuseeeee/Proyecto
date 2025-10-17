@@ -10,7 +10,6 @@ public class VidaEnemigos : MonoBehaviour
     public int vidaActual;
     private Renderer auraRenderer; // El componente visual del aura.
     private float duracionFlash = 0.15f;
-    private NavMeshAgent agent; //Preguntar
     private bool isStunned = false;
 
     void Start()
@@ -22,7 +21,6 @@ public class VidaEnemigos : MonoBehaviour
             auraRenderer = auraTransform.GetComponent<Renderer>();
             auraRenderer.enabled = false; 
         }
-        agent = GetComponent<NavMeshAgent>();
         rb = gameObject.AddComponent<Rigidbody>();
 
     }
