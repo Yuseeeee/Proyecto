@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,7 @@ public class VidaEnemigos : MonoBehaviour
     private float duracionFlash = 0.15f;
     private UnityEngine.AI.NavMeshAgent agent; //Preguntar
     private bool isStunned = false;
-
+    private Rigidbody rb;
     void Start()
     {
         vidaActual = vidaMaxima;
@@ -23,7 +24,7 @@ public class VidaEnemigos : MonoBehaviour
             auraRenderer.enabled = false; 
         }
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        rb = gameObject.AddComponent<Rigidbody>();
+        rb = gameObject.GetComponent<Rigidbody>();
 
     }
 

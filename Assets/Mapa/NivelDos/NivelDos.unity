@@ -298,7 +298,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9818888, y: 1}
+    m_SensorSize: {x: 2.6103897, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -398,7 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 257115378}
   m_Layer: 0
-  m_Name: Mira
+  m_Name: MiraP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -682,6 +682,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 327296579df2adb4589cdaf3af8cbdbe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 327296579df2adb4589cdaf3af8cbdbe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 327296579df2adb4589cdaf3af8cbdbe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.87
+      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 327296579df2adb4589cdaf3af8cbdbe, type: 3}
       propertyPath: m_Controller
       value: 
@@ -899,13 +911,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bfa8a4bc35825478813abc7cd51657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntoDeAtaque: {fileID: 257115378}
-  rangoDeAtaque: 0.3
+  animator: {fileID: 493829141}
+  puntoPunio: {fileID: 257115378}
+  puntoPatada: {fileID: 1697584212}
+  puntoEspecial: {fileID: 686141077}
   capasEnemigas:
     serializedVersion: 2
-    m_Bits: 0
-  danio: 25
-  animator: {fileID: 493829141}
+    m_Bits: 512
+  rangoPunio: 0.3
+  danioPunio: 20
+  coolPunio: 0.3
+  rangoPatada: 0.7
+  danioPatada: 25
+  coolPatada: 0.5
+  rangoEspecial: 2
+  danioEspecial: 30
+  knockbackFuerza: 6
+  duracionAturdimiento: 0.8
+  cargaPorMuerte: 1
+  cargaNecesaria: 5
 --- !u!54 &659884987
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -936,6 +960,36 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
+--- !u!1 &686141076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686141077}
+  m_Layer: 0
+  m_Name: MiraE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &686141077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686141076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1861170116}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &722866059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1659,7 +1713,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9818888, y: 1}
+    m_SensorSize: {x: 2.6103897, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1703,7 +1757,7 @@ PrefabInstance:
     - target: {fileID: 5744016228520375793, guid: d136aed46c1fb5a489205851bfeb8a84,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.06999993
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 5744016228520375793, guid: d136aed46c1fb5a489205851bfeb8a84,
         type: 3}
@@ -1754,11 +1808,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemigo
-      objectReference: {fileID: 0}
-    - target: {fileID: 8359624836266942918, guid: d136aed46c1fb5a489205851bfeb8a84,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d136aed46c1fb5a489205851bfeb8a84, type: 3}
@@ -1815,7 +1864,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9818888, y: 1}
+    m_SensorSize: {x: 2.6103897, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2503,6 +2552,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1675922109}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1697584211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1697584212}
+  m_Layer: 0
+  m_Name: MiraL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1697584212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697584211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1772592585}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702849567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,7 +2629,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9818888, y: 1}
+    m_SensorSize: {x: 2.6103897, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2983,6 +3062,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1772592585 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400054, guid: 327296579df2adb4589cdaf3af8cbdbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 493829140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1861170116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400064, guid: 327296579df2adb4589cdaf3af8cbdbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 493829140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1897308464
 PrefabInstance:
   m_ObjectHideFlags: 0
