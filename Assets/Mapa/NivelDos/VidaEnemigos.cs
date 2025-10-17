@@ -5,55 +5,71 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class VidaEnemigos : MonoBehaviour
 {
+    public static event Action OnEnemigoMuerto;
     public int vidaMaxima = 100;
     public int vidaActual;
-
     private Renderer auraRenderer; // El componente visual del aura.
     private float duracionFlash = 0.15f;
+    private NavMeshAgent agent; //Preguntar
+    private bool isStunned = false;
 
     void Start()
     {
         vidaActual = vidaMaxima;
-
-        // Buscamos el objeto "AuraDeDano" entre los hijos.
         Transform auraTransform = transform.Find("AuraDeDano");
         if (auraTransform != null)
         {
             auraRenderer = auraTransform.GetComponent<Renderer>();
-            auraRenderer.enabled = false; // Nos aseguramos de que empiece invisible.
+            auraRenderer.enabled = false; 
         }
-        else
-        {
-            Debug.LogError("¡ERROR! No se encontró el objeto hijo 'AuraDeDano' en " + gameObject.name);
-        }
+        agent = GetComponent<NavMeshAgent>();
+        rb = gameObject.AddComponent<Rigidbody>();
+
     }
 
     public void RecibirDanio(int cantidadDeDanio)
     {
         vidaActual -= cantidadDeDanio;
-
-        // Si tenemos un aura, iniciamos el flash.
-        if (auraRenderer != null)
-        {
-            StartCoroutine(FlashAura());
-        }
-
-        if (vidaActual <= 0)
-        {
-            Morir();
-        }
+        if (auraRenderer != null) StartCoroutine(FlashAura());
+        if (vidaActual <= 0) Morir();
     }
 
-    // Rutina que activa y desactiva el aura rápidamente.
     IEnumerator FlashAura()
     {
-        auraRenderer.enabled = true; // La hace visible.
+        auraRenderer.enabled = true; 
         yield return new WaitForSeconds(duracionFlash);
-        auraRenderer.enabled = false; // La vuelve a ocultar.
+        auraRenderer.enabled = false; 
     }
 
     void Morir()
     {
+        OnEnemigoMuerto?.Invoke();
         Destroy(gameObject);
+    }
+
+    public void ApplyKnockback(Vector3 fuerza, float duracionStun)
+    {
+        if (isStunned) return;
+        StartCoroutine(KnockbackCoroutine(fuerza, duracionStun));
+    }
+
+    IEnumerator KnockbackCoroutine(Vector3 fuerza, float duracion)
+    {
+        isStunned = true;
+        if (agent != null) agent.enabled = false;
+        else transform.position += fuerza * Time.deltaTime;
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.AddForce(fuerza, ForceMode.VelocityChange);
+        }
+        yield return new WaitForSeconds(duracion);
+        if (rb != null)
+        {
+            rb.velocity = Vector3.zero;
+            rb.isKinematic = true;
+        }
+        if (agent != null) agent.enabled = true;
+            isStunned = false;
     }
 }
