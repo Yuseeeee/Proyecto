@@ -2771,6 +2771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1ed1201d2aa334bae639ec8392c0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
 --- !u!114 &1155516041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2791,6 +2792,7 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.1
+  m_WalkSpeed: 5
 --- !u!95 &1155516042
 Animator:
   serializedVersion: 3
