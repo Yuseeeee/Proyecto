@@ -2058,7 +2058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boton: {fileID: 1808763586}
   tecla: 109
-  NombreDeEscena: NivelUno
+  NombreDeEscena: Bienvenido
 --- !u!1 &1552206399
 GameObject:
   m_ObjectHideFlags: 0
