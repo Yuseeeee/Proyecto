@@ -298,7 +298,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.6103897, y: 1}
+    m_SensorSize: {x: 4.993865, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1315,7 +1315,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 493430420}
-  - component: {fileID: 503302516}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -1785,25 +1784,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.16991952, y: 0.017326713, z: 0.264228}
     m_Extent: {x: 0.8163067, y: 1.5561763, z: 0.5902144}
   m_DirtyAABB: 0
---- !u!95 &503302516
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493796020}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 327296579df2adb4589cdaf3af8cbdbe, type: 3}
-  m_Controller: {fileID: 9100000, guid: b51c82b3282ec7f4594664e83095d347, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &526394931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2710,7 +2690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bfa8a4bc35825478813abc7cd51657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 503302516}
+  animator: {fileID: 0}
   puntoPunio: {fileID: 257115378}
   puntoPatada: {fileID: 1697584212}
   puntoEspecial: {fileID: 686141077}
@@ -2771,7 +2751,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1ed1201d2aa334bae639ec8392c0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
 --- !u!114 &1155516041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2792,7 +2771,6 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.1
-  m_WalkSpeed: 5
 --- !u!95 &1155516042
 Animator:
   serializedVersion: 3
@@ -2802,7 +2780,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155516034}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 327296579df2adb4589cdaf3af8cbdbe, type: 3}
   m_Controller: {fileID: 9100000, guid: b51c82b3282ec7f4594664e83095d347, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -2865,7 +2843,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.6103897, y: 1}
+    m_SensorSize: {x: 4.993865, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3020,7 +2998,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.6103897, y: 1}
+    m_SensorSize: {x: 4.993865, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3801,7 +3779,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.6103897, y: 1}
+    m_SensorSize: {x: 4.993865, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
