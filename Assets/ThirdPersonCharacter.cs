@@ -12,7 +12,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_JumpPower = 12f;
 		[Range(1f, 4f)][SerializeField] float m_GravityMultiplier = 2f;
 		[SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
-		[SerializeField] float m_MoveSpeedMultiplier = 1f;
+		[SerializeField] float m_MoveSpeedMultiplier = 1.5f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
@@ -118,7 +118,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void UpdateAnimator(Vector3 move)
 		{
 			// update the animator parameters
-			m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
+		float forwardValue = m_ForwardAmount;
+
+// Si se está presionando Shift, aumentá el valor para que entre en la animación de correr
+		if (Input.GetKey(KeyCode.LeftShift))
+    forwardValue *= 1.5f;
+
+			m_Animator.SetFloat("Forward", forwardValue, 0.1f, Time.deltaTime);
 			m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
 			m_Animator.SetBool("Crouch", m_Crouching);
 			m_Animator.SetBool("OnGround", m_IsGrounded);
@@ -188,14 +194,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			// we implement this function to override the default root motion.
 			// this allows us to modify the positional speed before it's applied.
-			if (m_IsGrounded && Time.deltaTime > 0)
+			if (m_IsGrounded)
 			{
-				Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
-
-				// we preserve the existing y part of the current velocity.
-				v.y = m_Rigidbody.velocity.y;
-				m_Rigidbody.velocity = v;
+   				Vector3 moveDir = transform.forward * m_ForwardAmount * m_MoveSpeedMultiplier;
+   				m_Rigidbody.velocity = new Vector3(moveDir.x, m_Rigidbody.velocity.y, moveDir.z);
 			}
+
 		}
 
 
@@ -221,5 +225,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Animator.applyRootMotion = false;
 			}
 		}
+		public void SetMoveSpeedMultiplier(float multiplier)
+		{
+    		m_MoveSpeedMultiplier = multiplier;
+		}
+
 	}
+	
 } 
