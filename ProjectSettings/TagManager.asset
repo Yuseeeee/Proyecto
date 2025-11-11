@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Jugador
+  - Objeto interactivo
   layers:
   - Default
   - TransparentFX
