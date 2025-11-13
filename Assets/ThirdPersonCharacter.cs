@@ -191,16 +191,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
 		public void OnAnimatorMove()
-		{
-			// we implement this function to override the default root motion.
-			// this allows us to modify the positional speed before it's applied.
-			if (m_IsGrounded)
-			{
-   				Vector3 moveDir = transform.forward * m_ForwardAmount * m_MoveSpeedMultiplier;
-   				m_Rigidbody.velocity = new Vector3(moveDir.x, m_Rigidbody.velocity.y, moveDir.z);
-			}
+{
+    if (m_IsGrounded && Time.deltaTime > 0)
+    {
+        Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
+        v.y = m_Rigidbody.velocity.y;
+        m_Rigidbody.velocity = v;
+    }
+}
 
-		}
 
 
 		void CheckGroundStatus()
