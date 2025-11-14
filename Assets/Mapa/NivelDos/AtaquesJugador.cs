@@ -59,7 +59,7 @@ public class AtaquesJugador : MonoBehaviour
             proxPatada = Time.time + coolPatada;
         }
 
-        if (Input.GetKeyDown(KeyCode.C) && especialListo)
+        if (Input.GetKeyDown(KeyCode.Q) && especialListo)
         {
             LanzarEspecial();
             cargaActual = 0;

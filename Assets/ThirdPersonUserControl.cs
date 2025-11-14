@@ -62,7 +62,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 #if !MOBILE_INPUT
     // Shift = correr
     if (Input.GetKey(KeyCode.LeftShift))
-        m_Character.SetMoveSpeedMultiplier(1.85f); // corre más rápido
+        m_Character.SetMoveSpeedMultiplier(1.6f); // corre más rápido
     else
         m_Character.SetMoveSpeedMultiplier(1.5f); // velocidad base (igual que antes)
 #endif
