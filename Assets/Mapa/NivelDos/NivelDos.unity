@@ -485,6 +485,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &275974122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 275974123}
+  m_Layer: 0
+  m_Name: Patada
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &275974123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275974122}
+  m_LocalRotation: {x: -0.73352015, y: 0.3057881, z: 0.19141106, w: -0.57602406}
+  m_LocalPosition: {x: 0.6680026, y: -0.041072056, z: 0.17403767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1411495384}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &373865602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400062, guid: 21613d3e6b809db48925e04571bd2638,
@@ -1125,7 +1155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   puntoPunio: {fileID: 7712162365919919885}
-  puntoPatada: {fileID: 0}
+  puntoPatada: {fileID: 275974123}
   puntoEspecial: {fileID: 0}
   capasEnemigas:
     serializedVersion: 2
@@ -1133,7 +1163,7 @@ MonoBehaviour:
   rangoPunio: 0.36
   danioPunio: 25
   coolPunio: 0.3
-  rangoPatada: 1.5
+  rangoPatada: 0.68
   danioPatada: 20
   coolPatada: 0.5
   rangoEspecial: 2.5
@@ -1634,6 +1664,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3996462393324696572, guid: df41434a108b94d4aace146ab6d23871,
     type: 3}
   m_PrefabInstance: {fileID: 1429057076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1411495384 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400012, guid: 21613d3e6b809db48925e04571bd2638,
+    type: 3}
+  m_PrefabInstance: {fileID: 765114015}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1429057076
 PrefabInstance:
