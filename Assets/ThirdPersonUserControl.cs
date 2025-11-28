@@ -7,16 +7,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class ThirdPersonUserControl : MonoBehaviour
     {
-        private ThirdPersonCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
-        private Transform m_Cam;                  // A reference to the main camera in the scenes transform
-        private Vector3 m_CamForward;             // The current forward direction of the camera
-        private Vector3 m_Move;
-        private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
-
+        private ThirdPersonCharacter m_Character; // Referencia al ThirdPersonCharacter
+        private Transform m_Cam;                  // Referencia a la cámara
+        private Vector3 m_CamForward;             // Dirección actual de la cámara
+        private Vector3 m_Move;                   // Vector de movimiento deseado
+        private bool m_Jump;                      
         
         private void Start()
         {
-            // get the transform of the main camera
             if (Camera.main != null)
             {
                 m_Cam = Camera.main.transform;
@@ -25,10 +23,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 Debug.LogWarning(
                     "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
-                // we use self-relative controls in this case, which probably isn't what the user wants, but hey, we warned them!
             }
 
-            // get the third person character ( this should never be null due to require component )
             m_Character = GetComponent<ThirdPersonCharacter>();
         }
 
@@ -42,33 +38,53 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        // Fixed update is called in sync with physics
+        // Fixed update se llama en sincronización con la física
         private void FixedUpdate()
-{
-    float h = CrossPlatformInputManager.GetAxis("Horizontal");
-    float v = CrossPlatformInputManager.GetAxis("Vertical");
-    bool crouch = Input.GetKey(KeyCode.C);
+        {
+            // Lectura de inputs Horizontal y Vertical (A/D y W/S)
+            float h = CrossPlatformInputManager.GetAxis("Horizontal"); // A y D
+            float v = CrossPlatformInputManager.GetAxis("Vertical"); // W y S
+            bool crouch = Input.GetKey(KeyCode.C);
 
-    if (m_Cam != null)
-    {
-        m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
-        m_Move = v * m_CamForward + h * m_Cam.right;
-    }
-    else
-    {
-        m_Move = v * Vector3.forward + h * Vector3.right;
-    }
+            // Calcula el vector de movimiento (dirección)
+            if (m_Cam != null)
+            {
+                m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
+                m_Move = v * m_CamForward + h * m_Cam.right;
+            }
+            else
+            {
+                m_Move = v * Vector3.forward + h * Vector3.right;
+            }
 
-#if !MOBILE_INPUT
-    // Shift = correr
-    if (Input.GetKey(KeyCode.LeftShift))
-        m_Character.SetMoveSpeedMultiplier(1.6f); // corre más rápido
-    else
-        m_Character.SetMoveSpeedMultiplier(1.5f); // velocidad base (igual que antes)
-#endif
+        #if !MOBILE_INPUT
+            // ----------------------------------------------------
+            // LÓGICA DE VELOCIDAD (W = Caminar, Shift = Correr)
+            // ----------------------------------------------------
+            
+            // Usamos v > 0.1f para asegurarnos de que el input hacia adelante (W) está activo
+            if (v > 0.1f && Input.GetKey(KeyCode.LeftShift))
+            {
+                // Correr (2.5f es un valor común, ajústalo según tu ThirdPersonCharacter)
+                m_Character.SetMoveSpeedMultiplier(2.5f); 
+            }
+            else
+            {
+                // Velocidad base para Caminar (1.5f es un valor común, ajústalo)
+                m_Character.SetMoveSpeedMultiplier(1.5f);
+            }
+            // NOTA: Si no estás usando W, pero usas A/D/S, el personaje seguirá moviéndose a velocidad de caminar (1.5f).
+        #endif
 
-    m_Character.Move(m_Move, crouch, m_Jump);
-    m_Jump = false;
-}
+            m_Character.Move(m_Move, crouch, m_Jump);
+            m_Jump = false;
+        }
+
+        // FUNCIÓN PÚBLICA CRUCIAL: Resetea el vector de movimiento al finalizar el ataque.
+        public void ResetMoveVector()
+        {
+            // Soluciona el bug de "caminar solo" al reactivar el script de control.
+            m_Move = Vector3.zero;
+        }
     }
 }

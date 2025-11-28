@@ -6,10 +6,14 @@ public class ObjetivoEnemigos : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] public Transform player;
+    [SerializeField] Animator anim;
+
     // Start is called before the first frame update
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponentInParent<Animator>();
+
     }
 
     private void Start()
@@ -21,5 +25,7 @@ public class ObjetivoEnemigos : MonoBehaviour
     void Update()
     {
         agent.destination = player.position;
+        anim.SetFloat("Speed", agent.velocity.magnitude);
+
     }
 }

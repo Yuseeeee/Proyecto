@@ -1,76 +1,83 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson; 
 
 public class AtaquesJugador : MonoBehaviour
 {    
     public Animator animator;
 
+    // --- Variables de Control de Movimiento ---
+    private ThirdPersonUserControl controlMovimiento; 
+    // Bandera crucial para bloquear cualquier input (movimiento o ataque)
+    private bool isAttacking = false; 
+
+    [Tooltip("Duración del clip de animación 'Punching' en segundos")]
+    public float duracionAnimacionPunio = 0.4f; 
+    [Tooltip("Duración del clip de animación 'Patada' en segundos")]
+    public float duracionAnimacionPatada = 0.6f; 
+
     public Transform puntoPunio;
     public Transform puntoPatada;
-    public Transform puntoEspecial;
 
     public LayerMask capasEnemigas; 
 
     public float rangoPunio = 1f;
     public int danioPunio = 25;
-    public float coolPunio = 0.3f;
+    public float coolPunio = 0.3f; 
 
     public float rangoPatada = 1.5f;
     public int danioPatada = 20;
     public float coolPatada = 0.5f;
 
-    public float rangoEspecial = 2.5f;
-    public int danioEspecial = 40;
-    public float knockbackFuerza = 6f;
-    public float duracionAturdimiento = 0.8f;
-
-    public int cargaPorMuerte = 1;
-    public int cargaNecesaria = 5;
-
     float proxPunio = 0f;
     float proxPatada = 0f;
-    float proxEspecial = 0f;
-
-    int cargaActual = 0;
-    bool especialListo = false;
 
     void Start()
     {
-        VidaEnemigos.OnEnemigoMuerto += CargarEspecial;
-    }
-
-    void OnDestroy()
-    {
-        VidaEnemigos.OnEnemigoMuerto -= CargarEspecial;
+        controlMovimiento = GetComponent<ThirdPersonUserControl>();
     }
 
     void Update()
     {
+        // 0. BLOQUEO: Si está atacando, ignoramos *todo* input.
+        if (isAttacking)
+            return;
+
+        // Puñetazo
         if (Input.GetKeyDown(KeyCode.X) && Time.time >= proxPunio)
         {
             Punetazo();
             proxPunio = Time.time + coolPunio;
         }
 
+        // Patada
         if (Input.GetKeyDown(KeyCode.Z) && Time.time >= proxPatada)
         {
             Patada();
             proxPatada = Time.time + coolPatada;
         }
-
-        if (Input.GetKeyDown(KeyCode.Q) && especialListo)
-        {
-            LanzarEspecial();
-            cargaActual = 0;
-            especialListo = false;
-        }
     }
 
     void Punetazo()
     {
-        if (animator) animator.SetTrigger("GolpeMano");
+        // 1. INICIO DEL BLOQUEO
+        isAttacking = true; 
 
+        // 2. Detener el movimiento y programar la reactivación
+        if (controlMovimiento != null)
+        {
+            controlMovimiento.enabled = false;
+            if (animator) animator.SetFloat("Forward", 0f); 
+            
+            // Programar la función que termina el ataque
+            Invoke("EndAttack", duracionAnimacionPunio);
+        }
+
+        // 3. Disparar la animación
+        if (animator) animator.SetTrigger("GolpeMano"); 
+
+        // --- Lógica de Daño (Sin cambios) ---
         Collider[] hits = Physics.OverlapSphere(puntoPunio.position, rangoPunio, capasEnemigas);
         if (hits.Length == 0) return;
 
@@ -89,7 +96,7 @@ public class AtaquesJugador : MonoBehaviour
         if (masCercano != null)
         {
             Vector3 dir = (masCercano.transform.position - transform.position).normalized;
-            transform.forward = new Vector3(dir.x, 0, dir.z); // gira hacia el enemigo
+            transform.forward = new Vector3(dir.x, 0, dir.z);
             VidaEnemigos ve = masCercano.GetComponentInParent<VidaEnemigos>();
             if (ve != null) ve.RecibirDanio(danioPunio);
         }
@@ -97,14 +104,27 @@ public class AtaquesJugador : MonoBehaviour
 
     void Patada()
     {
-        if (animator) animator.SetTrigger("Patada");
+        // 1. INICIO DEL BLOQUEO
+        isAttacking = true; 
 
+        // 2. Detener el movimiento y programar la reactivación
+        if (controlMovimiento != null)
+        {
+            controlMovimiento.enabled = false;
+            if (animator) animator.SetFloat("Forward", 0f); 
+            Invoke("EndAttack", duracionAnimacionPatada);
+        }
+        
+        // 3. Disparar la animación
+        if (animator) animator.SetTrigger("Patada"); 
+
+        // --- Lógica de Daño (Sin cambios) ---
         Collider[] hits = Physics.OverlapSphere(puntoPatada.position, rangoPatada, capasEnemigas);
         foreach (Collider c in hits)
         {
             Vector3 dir = (c.transform.position - transform.position).normalized;
             float ang = Vector3.Angle(transform.forward, dir);
-            if (ang <= 90f * 0.5f) // sólo enemigos frente al jugador
+            if (ang <= 90f * 0.5f)
             {
                 VidaEnemigos ve = c.GetComponent<VidaEnemigos>();
                 if (ve != null) ve.RecibirDanio(danioPatada);
@@ -112,42 +132,25 @@ public class AtaquesJugador : MonoBehaviour
         }
     }
 
-    void LanzarEspecial()
+    // FUNCIÓN ÚNICA que se llama por Invoke para terminar el ataque
+    void EndAttack()
     {
-        if (animator)
+        // 1. LIMPIEZA CRUCIAL: Resetea el vector de movimiento interno m_Move
+        if (controlMovimiento != null)
         {
-            animator.ResetTrigger("EspecialCarga");
-            animator.SetTrigger("EspecialLanzar");
+            controlMovimiento.ResetMoveVector(); // <--- ¡La nueva función!
         }
 
-        Collider[] hits = Physics.OverlapSphere(puntoEspecial.position, rangoEspecial, capasEnemigas);
-        foreach (Collider c in hits)
+        // 2. Reactivar el script de movimiento
+        if (controlMovimiento != null)
         {
-            Vector3 dir = (c.transform.position - puntoEspecial.position).normalized;
-            float ang = Vector3.Angle(transform.forward, dir);
-            if (ang <= 100f * 0.5f)
-            {
-                VidaEnemigos ve = c.GetComponent<VidaEnemigos>();
-                if (ve != null)
-                {
-                    ve.RecibirDanio(danioEspecial);
-                    Vector3 fuerzaVector = dir * knockbackFuerza + Vector3.up * (knockbackFuerza * 0.4f);
-                    ve.ApplyKnockback(fuerzaVector, duracionAturdimiento);
-                }
-            }
+            controlMovimiento.enabled = true;
         }
+        
+        // 3. Quitar el bloqueo: Permite nuevos inputs en Update()
+        isAttacking = false; 
     }
-
-    void CargarEspecial()
-    {
-        cargaActual += cargaPorMuerte;
-        if (cargaActual >= cargaNecesaria)
-        {
-            cargaActual = cargaNecesaria;
-            especialListo = true;
-        }
-    }
-
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -155,8 +158,5 @@ public class AtaquesJugador : MonoBehaviour
 
         Gizmos.color = Color.green;
         if (puntoPatada != null) Gizmos.DrawWireSphere(puntoPatada.position, rangoPatada);
-
-        Gizmos.color = Color.blue;
-        if (puntoEspecial != null) Gizmos.DrawWireSphere(puntoEspecial.position, rangoEspecial);
     }
 }
