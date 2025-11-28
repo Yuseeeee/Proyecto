@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -11,22 +10,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Transform m_Cam;
         private Vector3 m_CamForward;
         private Vector3 m_Move;
-        private bool m_Jump;
 
         private void Start()
         {
             if (Camera.main != null)
                 m_Cam = Camera.main.transform;
-            else
-                Debug.LogWarning("No MainCamera found.", gameObject);
 
             m_Character = GetComponent<ThirdPersonCharacter>();
-        }
-
-        private void Update()
-        {
-            if (!m_Jump)
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
         }
 
         private void FixedUpdate()
@@ -34,8 +24,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
 
-            bool crouch = Input.GetKey(KeyCode.C);
-
+            // Dirección según cámara
             if (m_Cam != null)
             {
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
@@ -46,19 +35,31 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_Move = v * Vector3.forward + h * Vector3.right;
             }
 
-            // RUN only if shift is held
+            // Correr con Shift izquierdo
             if (v > 0.1f && Input.GetKey(KeyCode.LeftShift))
-                m_Character.SetMoveSpeedMultiplier(1.75f);
+                m_Character.SetMoveSpeedMultiplier(2.25f);
             else
-                m_Character.SetMoveSpeedMultiplier(1.3f);
+                m_Character.SetMoveSpeedMultiplier(1.5f);
 
-            m_Character.Move(m_Move, crouch, m_Jump);
-            m_Jump = false;
+            m_Character.Move(m_Move);
         }
 
-        public void ResetMoveVector()
+        // Hard Reset para ataques
+        public void HardResetInputs()
         {
             m_Move = Vector3.zero;
+
+            Animator anim = GetComponent<Animator>();
+            if (anim != null)
+            {
+                anim.SetFloat("Forward", 0f);
+                anim.SetFloat("Turn", 0f);
+                anim.SetBool("IsRunning", false);
+            }
+
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+                rb.velocity = Vector3.zero;
         }
     }
 }

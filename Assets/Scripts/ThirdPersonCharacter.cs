@@ -2,141 +2,65 @@ using UnityEngine;
 
 public class ThirdPersonCharacter : MonoBehaviour
 {
-    [SerializeField] float m_MovingTurnSpeed = 360;
-    [SerializeField] float m_StationaryTurnSpeed = 180;
-    [SerializeField] float m_JumpPower = 12f;
-    [Range(1f, 4f)][SerializeField] float m_GravityMultiplier = 2f;
-    [SerializeField] float m_RunCycleLegOffset = 0.2f;
-    [SerializeField] float m_MoveSpeedMultiplier = 2f;
-    [SerializeField] float m_AnimSpeedMultiplier = 1f;
-    [SerializeField] float m_GroundCheckDistance = 0.1f;
-
+    public float turnSpeed = 360f;
+    public float moveSpeed = 2f;
+    float m_ForwardAmount;
+    float m_TurnAmount;
     Rigidbody m_Rigidbody;
     Animator m_Animator;
-    bool m_IsGrounded;
-    float m_OrigGroundCheckDistance;
-    const float k_Half = 0.5f;
-    float m_TurnAmount;
-    float m_ForwardAmount;
-    Vector3 m_GroundNormal;
-    float m_CapsuleHeight;
-    Vector3 m_CapsuleCenter;
-    CapsuleCollider m_Capsule;
-    bool m_Crouching;
+    float speedMultiplier = 1.3f;
 
     void Start()
     {
-        m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
-        m_Capsule = GetComponent<CapsuleCollider>();
-        m_CapsuleHeight = m_Capsule.height;
-        m_CapsuleCenter = m_Capsule.center;
-
+        m_Animator = GetComponent<Animator>();
         m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-        m_OrigGroundCheckDistance = m_GroundCheckDistance;
     }
 
-    public void Move(Vector3 move, bool crouch, bool jump)
+    public void SetMoveSpeedMultiplier(float s)
     {
-        if (move.magnitude > 1f) move.Normalize();
+        speedMultiplier = s;
+    }
+
+    public void Move(Vector3 move)
+    {
+        if (move.magnitude > 1f)
+            move.Normalize();
+
         move = transform.InverseTransformDirection(move);
-        CheckGroundStatus();
-        move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 
         m_TurnAmount = Mathf.Atan2(move.x, move.z);
         m_ForwardAmount = move.z;
 
-        ApplyExtraTurnRotation();
+        ApplyRotation();
 
-        if (m_IsGrounded)
-            HandleGroundedMovement(crouch, jump);
-        else
-            HandleAirborneMovement();
+        Vector3 velocity =
+            transform.forward * (m_ForwardAmount * moveSpeed * speedMultiplier);
+        velocity.y = m_Rigidbody.velocity.y;
 
-        UpdateAnimator(move);
+        m_Rigidbody.velocity = velocity;
+
+        UpdateAnimator();
     }
 
-    void HandleAirborneMovement()
+    void ApplyRotation()
     {
-        Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
-        m_Rigidbody.AddForce(extraGravityForce);
-
-        m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
-    }
-
-    void HandleGroundedMovement(bool crouch, bool jump)
-    {
-        if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
-        {
-            m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
-            m_IsGrounded = false;
-            m_Animator.applyRootMotion = false;
-            m_GroundCheckDistance = 0.1f;
-        }
-    }
-
-    void ApplyExtraTurnRotation()
-    {
-        float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
         transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
     }
 
-    void UpdateAnimator(Vector3 move)
+    void UpdateAnimator()
     {
-        // Only RUN uses a bool
-        bool isRunning = Input.GetKey(KeyCode.LeftShift) && m_ForwardAmount > 0.1f;
+        bool isRunning =
+            Input.GetKey(KeyCode.LeftShift) && m_ForwardAmount > 0.1f;
 
         m_Animator.SetBool("IsRunning", isRunning);
-
         m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
-
-        m_Animator.SetBool("Crouch", m_Crouching);
-        m_Animator.SetBool("OnGround", m_IsGrounded);
-
-        float runCycle = Mathf.Repeat(
-            m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + m_RunCycleLegOffset, 1);
-
-        float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
-
-        if (m_IsGrounded)
-            m_Animator.SetFloat("JumpLeg", jumpLeg);
-
-        m_Animator.speed = (m_IsGrounded && move.magnitude > 0) ?
-            m_AnimSpeedMultiplier : 1;
     }
 
-    public void SetMoveSpeedMultiplier(float speed)
+    public void ResetMotionValues()
     {
-        m_MoveSpeedMultiplier = speed;
-    }
-
-    public float GetMoveSpeedMultiplier()
-    {
-        return m_MoveSpeedMultiplier;
-    }
-
-    void CheckGroundStatus()
-    {
-        RaycastHit hitInfo;
-
-        float footOffset = (m_Capsule.height * 0.5f) - 0.1f;
-        Vector3 basePos = transform.position + m_Capsule.center - Vector3.up * footOffset;
-
-        float rayLength = m_GroundCheckDistance + 0.2f;
-        Debug.DrawRay(basePos, Vector3.down * rayLength, Color.red);
-
-        if (Physics.Raycast(basePos, Vector3.down, out hitInfo, rayLength))
-        {
-            m_GroundNormal = hitInfo.normal;
-            m_IsGrounded = true;
-            m_Animator.applyRootMotion = true;
-        }
-        else
-        {
-            m_IsGrounded = false;
-            m_GroundNormal = Vector3.up;
-            m_Animator.applyRootMotion = false;
-        }
+        m_ForwardAmount = 0f;
+        m_TurnAmount = 0f;
     }
 }
