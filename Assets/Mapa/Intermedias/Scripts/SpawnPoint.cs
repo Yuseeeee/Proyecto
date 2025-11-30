@@ -2,12 +2,12 @@
 
 public class SpawnPoint : MonoBehaviour
 {
-    public GameObject objetoASpawnear;  // El prefab
-    public Transform puntoDeSpawn;      // El lugar donde aparecerá
+    public GameObject Personaje;
+    public Transform PuntoDeSpawn;
 
     void Start()
     {
-        // Instancia el objeto en el punto de spawn
-        Instantiate(objetoASpawnear, puntoDeSpawn.position, puntoDeSpawn.rotation);
+        Personaje.transform.position = PuntoDeSpawn.position;
+        Personaje.transform.rotation = PuntoDeSpawn.rotation;
     }
 }
