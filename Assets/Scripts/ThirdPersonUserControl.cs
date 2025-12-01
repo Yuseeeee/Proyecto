@@ -11,6 +11,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_CamForward;
         private Vector3 m_Move;
 
+        // ahora es público para que AtaquesJugador lo pueda activar/desactivar
+        public bool bloqueado = false;
+
         private void Start()
         {
             if (Camera.main != null)
@@ -21,6 +24,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void FixedUpdate()
         {
+            // BLOQUEO DE MOVIMIENTO
+            if (bloqueado)
+            {
+                m_Move = Vector3.zero;
+                m_Character.Move(Vector3.zero);
+                return;
+            }
+
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
 
@@ -37,7 +48,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             // Correr con Shift izquierdo
             if (v > 0.1f && Input.GetKey(KeyCode.LeftShift))
-                m_Character.SetMoveSpeedMultiplier(2.25f);
+                m_Character.SetMoveSpeedMultiplier(2.5f);
             else
                 m_Character.SetMoveSpeedMultiplier(1.5f);
 
