@@ -1,41 +1,48 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DanioEnemigos : MonoBehaviour
 {
-    public int danio = 10; // daño por ataque
-    public float tiempoEntreAtaques = 1.0f;
-    private float proximoAtaque = 0f;
-    public float rangoAtaque = 2.0f; // distancia a la que puede golpear
-    public Transform puntoAtaque; // desde dónde dispara el raycast (opcional)
-    public Transform player; // asignar el jugador en Inspector
+    public Transform puntoAtaque;
+    public float rangoAtaque = 1f;
+    public int danio = 10;
 
-    void Update()
+    public Animator anim;
+    public string triggerAtaque = "Attack";
+
+    void Awake()
     {
-        if (Time.time < proximoAtaque) return;
+        anim = GetComponentInChildren<Animator>();
+    }
 
-        Vector3 origen = puntoAtaque != null ? puntoAtaque.position : transform.position;
-        Vector3 direccion = (player.position - origen).normalized;
+    public void Golpear()
+    {
+        Collider[] hits = Physics.OverlapSphere(puntoAtaque.position, rangoAtaque);
 
-
-        RaycastHit hit;
-        if (Physics.Raycast(origen, direccion, out hit, rangoAtaque))
+        foreach (Collider c in hits)
         {
-            if (hit.collider.CompareTag("Player"))
+            if (c.CompareTag("Player"))
             {
-                VidaPersonaje vidaDelJugador = hit.collider.GetComponent<VidaPersonaje>();
-                if (vidaDelJugador != null)
+                VidaPersonaje vida = c.GetComponent<VidaPersonaje>();
+                if (vida != null)
                 {
-                    vidaDelJugador.RecibirDanio(danio);
-                    Debug.Log("¡Jugador golpeado! Vida actual: " + vidaDelJugador.vidaActual);
+                    vida.RecibirDanio(danio);
+                    Debug.Log("DAÑO APLICADO EXACTO EN EL FRAME DEL GOLPE");
                 }
-
-                proximoAtaque = Time.time + tiempoEntreAtaques;
             }
         }
+    }
 
-        // Opcional: dibujar el raycast en Scene para debug
-        Debug.DrawRay(origen, direccion * rangoAtaque, Color.red);
+    public void DispararAnimAtaque()
+    {
+        anim.SetTrigger(triggerAtaque);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (puntoAtaque != null)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(puntoAtaque.position, rangoAtaque);
+        }
     }
 }

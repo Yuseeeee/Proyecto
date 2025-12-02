@@ -37,14 +37,14 @@ public class ObjetivoEnemigos : MonoBehaviour
         float dist = Vector3.Distance(transform.position, player.position);
 
         tiempoActual += Time.deltaTime;
+
         if (dist <= rangoAtaque)
         {
-            if (tiempoActual >= tiempoEntreAtaques)
+            if (!atacando && tiempoActual >= tiempoEntreAtaques)
             {
                 HacerAtaque();
                 tiempoActual = 0f;
             }
-            return;
         }
         else
         {
@@ -60,9 +60,9 @@ public class ObjetivoEnemigos : MonoBehaviour
             VolverAPatrullar();
         }
 
-        if (persiguiendo)
+        if (persiguiendo && !atacando)
             PerseguirJugador();
-        else
+        else if (!persiguiendo && !atacando)
             Patrullar();
 
         anim.SetFloat("Speed", agent.velocity.magnitude);
@@ -74,24 +74,26 @@ public class ObjetivoEnemigos : MonoBehaviour
         agent.isStopped = true;
         anim.SetTrigger("Attack");
         anim.SetFloat("Speed", 0f);
+        Invoke(nameof(FinAtaque), 0.8f);
+        anim.ResetTrigger("Attack");
+        anim.SetTrigger("Attack");
+
     }
 
     void FinAtaque()
     {
-        if (!atacando) return;
         atacando = false;
         agent.isStopped = false;
     }
 
     void PerseguirJugador()
     {
-        if (atacando) return;
         agent.SetDestination(player.position);
     }
 
     void Patrullar()
     {
-        if (puntosPatrulla.Length == 0 || atacando) return;
+        if (puntosPatrulla.Length == 0) return;
 
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
