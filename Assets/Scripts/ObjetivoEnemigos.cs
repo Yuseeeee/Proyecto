@@ -1,31 +1,108 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
+
 public class ObjetivoEnemigos : MonoBehaviour
 {
-    [SerializeField] NavMeshAgent agent;
-    [SerializeField] public Transform player;
-    [SerializeField] Animator anim;
+    public NavMeshAgent agent;
+    public Transform player;
+    public Animator anim;
 
-    // Start is called before the first frame update
+    public float rangoDeteccion = 10f;
+    public float rangoAtaque = 1.5f;
+    public float rangoPerdida = 15f;
+
+    public Transform[] puntosPatrulla;
+    int indicePatrulla = 0;
+
+    bool persiguiendo = false;
+    bool atacando = false;
+
+    public float tiempoEntreAtaques = 7f;
+    float tiempoActual = 0f;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        anim = GetComponentInParent<Animator>();
-
+        anim = GetComponentInChildren<Animator>();
     }
 
-    private void Start()
+    void Start()
     {
-
+        if (puntosPatrulla.Length > 0)
+            agent.SetDestination(puntosPatrulla[indicePatrulla].position);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        agent.destination = player.position;
-        anim.SetFloat("Speed", agent.velocity.magnitude);
+        float dist = Vector3.Distance(transform.position, player.position);
 
+        tiempoActual += Time.deltaTime;
+        if (dist <= rangoAtaque)
+        {
+            if (tiempoActual >= tiempoEntreAtaques)
+            {
+                HacerAtaque();
+                tiempoActual = 0f;
+            }
+            return;
+        }
+        else
+        {
+            FinAtaque();
+        }
+
+        if (!persiguiendo && dist <= rangoDeteccion)
+            persiguiendo = true;
+
+        if (persiguiendo && dist >= rangoPerdida)
+        {
+            persiguiendo = false;
+            VolverAPatrullar();
+        }
+
+        if (persiguiendo)
+            PerseguirJugador();
+        else
+            Patrullar();
+
+        anim.SetFloat("Speed", agent.velocity.magnitude);
+    }
+
+    void HacerAtaque()
+    {
+        atacando = true;
+        agent.isStopped = true;
+        anim.SetTrigger("Attack");
+        anim.SetFloat("Speed", 0f);
+    }
+
+    void FinAtaque()
+    {
+        if (!atacando) return;
+        atacando = false;
+        agent.isStopped = false;
+    }
+
+    void PerseguirJugador()
+    {
+        if (atacando) return;
+        agent.SetDestination(player.position);
+    }
+
+    void Patrullar()
+    {
+        if (puntosPatrulla.Length == 0 || atacando) return;
+
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        {
+            indicePatrulla = (indicePatrulla + 1) % puntosPatrulla.Length;
+            agent.SetDestination(puntosPatrulla[indicePatrulla].position);
+        }
+    }
+
+    void VolverAPatrullar()
+    {
+        if (puntosPatrulla.Length > 0)
+            agent.SetDestination(puntosPatrulla[indicePatrulla].position);
     }
 }
