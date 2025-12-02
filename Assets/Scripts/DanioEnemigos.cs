@@ -7,7 +7,7 @@ public class DanioEnemigos : MonoBehaviour
     public int danio = 10;
 
     public Animator anim;
-    public string triggerAtaque = "Attack";
+    private string triggerAtaque = "Attack";
 
     void Awake()
     {
