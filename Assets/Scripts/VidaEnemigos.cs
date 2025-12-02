@@ -1,9 +1,5 @@
 ﻿using UnityEngine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+
 public class VidaEnemigos : MonoBehaviour
 {
     public int vidaMaxima = 100;
@@ -17,7 +13,7 @@ public class VidaEnemigos : MonoBehaviour
     public void RecibirDanio(int cantidadDeDanio)
     {
         vidaActual -= cantidadDeDanio;
-        Debug.Log("Daño enemigo");
+        Debug.Log("Daño enemigo (" + vidaActual + ")");
 
         if (vidaActual <= 0)
             Morir();
@@ -25,6 +21,7 @@ public class VidaEnemigos : MonoBehaviour
 
     void Morir()
     {
+        Debug.Log("Enemigo destruido");
         Destroy(gameObject);
     }
 }

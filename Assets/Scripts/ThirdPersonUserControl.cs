@@ -48,7 +48,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             // Correr con Shift izquierdo
             if (v > 0.1f && Input.GetKey(KeyCode.LeftShift))
-                m_Character.SetMoveSpeedMultiplier(2.5f);
+                m_Character.SetMoveSpeedMultiplier(3f);
             else
                 m_Character.SetMoveSpeedMultiplier(1.5f);
 

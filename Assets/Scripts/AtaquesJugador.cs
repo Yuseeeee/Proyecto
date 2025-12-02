@@ -4,6 +4,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class AtaquesJugador : MonoBehaviour
 {
     public Animator animator;
+
     private ThirdPersonUserControl controlMovimiento;
     private ThirdPersonCharacter character;
     private bool isAttacking = false;
@@ -35,21 +36,15 @@ public class AtaquesJugador : MonoBehaviour
     }
 
     void Punetazo()
-{
-    isAttacking = true;
-    controlMovimiento.bloqueado = true;
+    {
+        isAttacking = true;
+        controlMovimiento.bloqueado = true;
 
-    animator.SetTrigger("GolpeMano");
+        animator.SetTrigger("GolpeMano");
 
+        Invoke(nameof(EndAttack), duracionAnimacionPunio);
+    }
 
-    Invoke(nameof(EndAttack), duracionAnimacionPunio);
-}
-
-public void GolpeEvent()
-{
-    Debug.Log("EVENTO DE GOLPE LLAMADO");
-    AplicarDanio(puntoPunio, rangoPunio, danioPunio);
-}
     void Patada()
     {
         isAttacking = true;
@@ -57,32 +52,39 @@ public void GolpeEvent()
 
         animator.SetTrigger("Patada");
 
-        AplicarDanio(puntoPatada, rangoPatada, danioPatada);
-
         Invoke(nameof(EndAttack), duracionAnimacionPatada);
     }
 
-    void AplicarDanio(Transform punto, float rango, int danio)
-{
-    Debug.Log("Chequeo OverlapSphere");
-
-    Collider[] hits = Physics.OverlapSphere(punto.position, rango, capasEnemigas);
-
-    Debug.Log("Cantidad de colliders detectados: " + hits.Length);
-
-    foreach (Collider c in hits)
+    public void GolpeEvent()
     {
-        Debug.Log("Detecté: " + c.name);
+        AplicarDanio(puntoPunio, rangoPunio, danioPunio);
+    }
 
-        VidaEnemigos ve = c.GetComponentInParent<VidaEnemigos>();
-        if (ve != null)
+    public void PatadaEvent()
+    {
+        AplicarDanio(puntoPatada, rangoPatada, danioPatada);
+    }
+
+    void AplicarDanio(Transform punto, float rango, int danio)
+    {
+        Debug.Log("Chequeando OverlapSphere en: " + punto.name);
+
+        Collider[] hits = Physics.OverlapSphere(punto.position, rango, capasEnemigas);
+        Debug.Log("Detectados: " + hits.Length);
+
+        foreach (Collider c in hits)
         {
-            Debug.Log("Daño enemigo");
-            ve.RecibirDanio(danio);
+            Debug.Log("Collider encontrado: " + c.name);
+
+            VidaEnemigos ve = c.transform.root.GetComponentInChildren<VidaEnemigos>();
+
+            if (ve != null)
+            {
+                Debug.Log("Daño enemigo!");
+                ve.RecibirDanio(danio);
+            }
         }
     }
-}
-
 
     void EndAttack()
     {
@@ -92,19 +94,15 @@ public void GolpeEvent()
         controlMovimiento.bloqueado = false;
         isAttacking = false;
     }
+
     private void OnDrawGizmos()
-{
-    if (puntoPunio != null)
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(puntoPunio.position, rangoPunio);
-    }
+        if (puntoPunio != null)
+            Gizmos.DrawWireSphere(puntoPunio.position, rangoPunio);
 
-    if (puntoPatada != null)
-    {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(puntoPatada.position, rangoPatada);
+        if (puntoPatada != null)
+            Gizmos.DrawWireSphere(puntoPatada.position, rangoPatada);
     }
-}
-
 }
