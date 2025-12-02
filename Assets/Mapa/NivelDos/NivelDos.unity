@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 90
+  vidaMaxima: 85
   vidaActual: 0
 --- !u!114 &413858112
 MonoBehaviour:
@@ -1245,8 +1245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danio: 10
-  tiempoEntreAtaques: 1
-  rangoAtaque: 2
+  tiempoEntreAtaques: 7
+  rangoAtaque: 1.5
   puntoAtaque: {fileID: 0}
   player: {fileID: 765242399}
 --- !u!136 &413858115
@@ -2372,7 +2372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 90
+  vidaMaxima: 85
   vidaActual: 0
 --- !u!114 &949043252
 MonoBehaviour:
@@ -2402,8 +2402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danio: 10
-  tiempoEntreAtaques: 1
-  rangoAtaque: 2
+  tiempoEntreAtaques: 7
+  rangoAtaque: 1.5
   puntoAtaque: {fileID: 0}
   player: {fileID: 765242399}
 --- !u!136 &949043255
@@ -2536,12 +2536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1052146077}
-  - component: {fileID: 1052146082}
-  - component: {fileID: 1052146081}
-  - component: {fileID: 1052146080}
-  - component: {fileID: 1052146079}
-  - component: {fileID: 1052146078}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Enemigos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2572,93 +2567,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!195 &1052146078
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052146076}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!95 &1052146079
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052146076}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: 327296579df2adb4589cdaf3af8cbdbe, type: 3}
-  m_Controller: {fileID: 9100000, guid: fe31e9ce326b3c2449ad37a2fe7d256f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1052146080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052146076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaMaxima: 100
-  vidaActual: 0
---- !u!114 &1052146081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052146076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33a53d52cc1be7f438813cda51450034, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  player: {fileID: 765242399}
-  anim: {fileID: 0}
---- !u!114 &1052146082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052146076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb3cf2aaf3b3e643a65e9f6a1cef2dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  danio: 10
-  tiempoEntreAtaques: 1
-  rangoAtaque: 2
-  puntoAtaque: {fileID: 0}
-  player: {fileID: 765242399}
 --- !u!1001 &1119868607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3046,7 +2954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 90
+  vidaMaxima: 85
   vidaActual: 0
 --- !u!114 &1119868612
 MonoBehaviour:
@@ -3076,8 +2984,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danio: 10
-  tiempoEntreAtaques: 1
-  rangoAtaque: 2
+  tiempoEntreAtaques: 7
+  rangoAtaque: 1.5
   puntoAtaque: {fileID: 0}
   player: {fileID: 765242399}
 --- !u!136 &1119868615
@@ -3570,7 +3478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 90
+  vidaMaxima: 85
   vidaActual: 0
 --- !u!114 &1214369021
 MonoBehaviour:
@@ -3600,8 +3508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danio: 10
-  tiempoEntreAtaques: 1
-  rangoAtaque: 2
+  tiempoEntreAtaques: 7
+  rangoAtaque: 1.5
   puntoAtaque: {fileID: 0}
   player: {fileID: 765242399}
 --- !u!136 &1214369024
@@ -4357,7 +4265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 90
+  vidaMaxima: 85
   vidaActual: 0
 --- !u!114 &1506467438
 MonoBehaviour:
@@ -4387,8 +4295,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danio: 10
-  tiempoEntreAtaques: 1
-  rangoAtaque: 2
+  tiempoEntreAtaques: 7
+  rangoAtaque: 1.5
   puntoAtaque: {fileID: 0}
   player: {fileID: 765242399}
 --- !u!136 &1506467441
@@ -5065,7 +4973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 90
+  vidaMaxima: 85
   vidaActual: 0
 --- !u!114 &1593812963
 MonoBehaviour:
@@ -5095,8 +5003,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danio: 10
-  tiempoEntreAtaques: 1
-  rangoAtaque: 2
+  tiempoEntreAtaques: 7
+  rangoAtaque: 1.5
   puntoAtaque: {fileID: 0}
   player: {fileID: 765242399}
 --- !u!136 &1593812966
@@ -5777,7 +5685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 90
+  vidaMaxima: 85
   vidaActual: 0
 --- !u!114 &1730357051
 MonoBehaviour:
@@ -5807,8 +5715,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danio: 10
-  tiempoEntreAtaques: 1
-  rangoAtaque: 2
+  tiempoEntreAtaques: 7
+  rangoAtaque: 1.5
   puntoAtaque: {fileID: 0}
   player: {fileID: 765242399}
 --- !u!136 &1730357054
@@ -6313,7 +6221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 90
+  vidaMaxima: 85
   vidaActual: 0
 --- !u!114 &1862043340
 MonoBehaviour:
@@ -6343,8 +6251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danio: 10
-  tiempoEntreAtaques: 10
-  rangoAtaque: 2
+  tiempoEntreAtaques: 7
+  rangoAtaque: 1.5
   puntoAtaque: {fileID: 0}
   player: {fileID: 765242399}
 --- !u!136 &1862043343
@@ -6965,7 +6873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 90
+  vidaMaxima: 85
   vidaActual: 0
 --- !u!114 &1953358579
 MonoBehaviour:
@@ -6995,8 +6903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danio: 10
-  tiempoEntreAtaques: 1
-  rangoAtaque: 2
+  tiempoEntreAtaques: 7
+  rangoAtaque: 1.5
   puntoAtaque: {fileID: 0}
   player: {fileID: 765242399}
 --- !u!136 &1953358582
@@ -7505,7 +7413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 90
+  vidaMaxima: 85
   vidaActual: 0
 --- !u!114 &2031124370
 MonoBehaviour:
@@ -7535,8 +7443,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danio: 10
-  tiempoEntreAtaques: 1
-  rangoAtaque: 2
+  tiempoEntreAtaques: 7
+  rangoAtaque: 1.5
   puntoAtaque: {fileID: 0}
   player: {fileID: 765242399}
 --- !u!136 &2031124373

@@ -13,7 +13,7 @@ public class VidaEnemigos : MonoBehaviour
     public void RecibirDanio(int cantidadDeDanio)
     {
         vidaActual -= cantidadDeDanio;
-        Debug.Log("Daño enemigo (" + vidaActual + ")");
+        Debug.Log("Daño enemigo a: " + gameObject.name);
 
         if (vidaActual <= 0)
             Morir();
@@ -21,7 +21,6 @@ public class VidaEnemigos : MonoBehaviour
 
     void Morir()
     {
-        Debug.Log("Enemigo destruido");
         Destroy(gameObject);
     }
 }
