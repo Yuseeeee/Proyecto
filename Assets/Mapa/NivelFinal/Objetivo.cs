@@ -16,6 +16,8 @@ public class Objetivo : MonoBehaviour
     void Update()
     {
         agent.SetDestination(player.position);
-        anim.SetFloat("Speed", agent.velocity.magnitude);
+
+        float velocidad = agent.velocity.magnitude;
+        anim.SetFloat("Speed", velocidad);
     }
 }

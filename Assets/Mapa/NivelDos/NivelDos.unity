@@ -74,7 +74,7 @@ LightmapSettings:
     m_BakeBackend: 1
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
-    m_PVRSampleCount: 256
+    m_PVRSampleCount: 128
     m_PVRBounces: 2
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
@@ -5428,6 +5428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076db032228184c4ba25297ef0345d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapaSig: 
 --- !u!4 &1650517977
 Transform:
   m_ObjectHideFlags: 0
@@ -7556,6 +7557,26 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 765242399}
+    - target: {fileID: 4785753315717116307, guid: 1553288a8e080cc49ae54c0b8c146902,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785753315717116307, guid: 1553288a8e080cc49ae54c0b8c146902,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785753315717116307, guid: 1553288a8e080cc49ae54c0b8c146902,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785753315717116307, guid: 1553288a8e080cc49ae54c0b8c146902,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7574,22 +7595,22 @@ PrefabInstance:
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0011860577
+      value: -0.0012546153
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.989475
+      value: 0.989471
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.14447096
+      value: -0.1444704
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.008123254
+      value: -0.008592801
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
@@ -7803,10 +7824,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1965908118}
     m_Modifications:
+    - target: {fileID: 4944926012919029399, guid: 1f619e92f86dd2d46acbe5f10d4d7337,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7937932173276518371, guid: 1f619e92f86dd2d46acbe5f10d4d7337,
         type: 3}
       propertyPath: m_Name
       value: lampara_de_calle_texture
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937932173276518371, guid: 1f619e92f86dd2d46acbe5f10d4d7337,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7937932173276679107, guid: 1f619e92f86dd2d46acbe5f10d4d7337,
         type: 3}
