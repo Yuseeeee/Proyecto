@@ -76,7 +76,7 @@ public class AtaquesJugador : MonoBehaviour
         {
             Debug.Log("Collider encontrado: " + c.name);
 
-            VidaEnemigos ve = c.transform.root.GetComponentInChildren<VidaEnemigos>();
+            VidaEnemigos ve = c.GetComponent<VidaEnemigos>();
 
             if (ve != null)
             {

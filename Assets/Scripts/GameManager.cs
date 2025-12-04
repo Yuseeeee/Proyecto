@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     int enemigosVivos = 0;
-
+    public string mapaSig = "";
     void Awake()
     {
         if (instance == null) instance = this;
@@ -21,6 +21,6 @@ public class GameManager : MonoBehaviour
         enemigosVivos--;
 
         if (enemigosVivos <= 0)
-            SceneManager.LoadScene("MapaPrevioJefe");
+            SceneManager.LoadScene(mapaSig);
     }
 }
