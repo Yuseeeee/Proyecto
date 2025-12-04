@@ -1,0 +1,26 @@
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameManager : MonoBehaviour
+{
+    public static GameManager instance;
+    int enemigosVivos = 0;
+
+    void Awake()
+    {
+        if (instance == null) instance = this;
+    }
+
+    public void RegistrarEnemigo()
+    {
+        enemigosVivos++;
+    }
+
+    public void EnemigoEliminado()
+    {
+        enemigosVivos--;
+
+        if (enemigosVivos <= 0)
+            SceneManager.LoadScene("MapaPrevioJefe");
+    }
+}

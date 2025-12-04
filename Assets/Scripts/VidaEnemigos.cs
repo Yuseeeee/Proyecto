@@ -4,23 +4,22 @@ public class VidaEnemigos : MonoBehaviour
 {
     public int vidaMaxima = 100;
     public int vidaActual;
-
-    public Animator anim;          
+    public Animator anim;
 
     void Awake()
     {
-        anim = GetComponentInChildren<Animator>(); 
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Start()
     {
         vidaActual = vidaMaxima;
+        GameManager.instance.RegistrarEnemigo();
     }
 
     public void RecibirDanio(int cantidad)
     {
         vidaActual -= cantidad;
-
         anim.SetTrigger("Hit");
 
         if (vidaActual <= 0)
@@ -29,6 +28,7 @@ public class VidaEnemigos : MonoBehaviour
 
     void Morir()
     {
+        GameManager.instance.EnemigoEliminado();
         Destroy(gameObject);
     }
 
