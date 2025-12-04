@@ -7,7 +7,6 @@ public class DanioEnemigos : MonoBehaviour
     public int danio = 10;
 
     public Animator anim;
-    private string triggerAtaque = "Attack";
 
     void Awake()
     {
@@ -34,7 +33,7 @@ public class DanioEnemigos : MonoBehaviour
 
     public void DispararAnimAtaque()
     {
-        anim.SetTrigger(triggerAtaque);
+        anim.SetTrigger("Attack");
     }
 
     private void OnDrawGizmos()
