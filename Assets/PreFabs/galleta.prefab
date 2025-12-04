@@ -1203,10 +1203,10 @@ MonoBehaviour:
     m_Bits: 512
   rangoPunio: 0.48
   rangoPatada: 0.68
-  danioPunio: 90
-  danioPatada: 20
+  danioPunio: 45
+  danioPatada: 60
   duracionAnimacionPunio: 0.4
-  duracionAnimacionPatada: 0.6
+  duracionAnimacionPatada: 0.4
 --- !u!1 &5791228780472764879
 GameObject:
   m_ObjectHideFlags: 0
