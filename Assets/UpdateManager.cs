@@ -2,7 +2,7 @@
 
 public class UpdateManager : MonoBehaviour
 {
-    public static UpdateManager Instance;
+    public static Update Instance;
 
     public int extraDanioPunio = 0;
     public int extraDanioPatada = 0;
@@ -27,13 +27,13 @@ public class UpdateManager : MonoBehaviour
     {
         extraDanioPunio += cantidad;
         PlayerPrefs.Save();
-        Debug.Log("UpdateManager: extraDanioPunio = " + extraDanioPunio);
+        Debug.Log("Update: extraDanioPunio = " + extraDanioPunio);
     }
 
     public void AddPatada(int cantidad)
     {
         extraDanioPatada += cantidad;
         PlayerPrefs.Save();
-        Debug.Log("UpdateManager: extraDanioPatada = " + extraDanioPatada);
+        Debug.Log("Update: extraDanioPatada = " + extraDanioPatada);
     }
 }
