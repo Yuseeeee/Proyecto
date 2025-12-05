@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntoAtaque: {fileID: 934786924}
   rangoAtaque: 1.5
-  danio: 10
+  danio: 15
   anim: {fileID: 0}
 --- !u!114 &110659242
 MonoBehaviour:
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   - {fileID: 1260931724}
   - {fileID: 1662838943}
   - {fileID: 1823731469}
-  tiempoEntreAtaques: 3.5
+  tiempoEntreAtaques: 1.4
 --- !u!114 &110659243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1857,7 +1857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntoAtaque: {fileID: 1654569434}
   rangoAtaque: 1.5
-  danio: 10
+  danio: 15
   anim: {fileID: 0}
 --- !u!114 &187093004
 MonoBehaviour:
@@ -1882,7 +1882,7 @@ MonoBehaviour:
   - {fileID: 1271921427}
   - {fileID: 1662838943}
   - {fileID: 1260931724}
-  tiempoEntreAtaques: 3.5
+  tiempoEntreAtaques: 1.4
 --- !u!114 &187093005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,7 +2160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntoAtaque: {fileID: 1051894129}
   rangoAtaque: 1.5
-  danio: 10
+  danio: 15
   anim: {fileID: 0}
 --- !u!114 &482317306
 MonoBehaviour:
@@ -2185,7 +2185,7 @@ MonoBehaviour:
   - {fileID: 1260931724}
   - {fileID: 1662838943}
   - {fileID: 1823731469}
-  tiempoEntreAtaques: 3.5
+  tiempoEntreAtaques: 1.4
 --- !u!114 &482317307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5317,7 +5317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntoAtaque: {fileID: 2099800551}
   rangoAtaque: 1.5
-  danio: 10
+  danio: 15
   anim: {fileID: 0}
 --- !u!114 &883529013
 MonoBehaviour:
@@ -5342,7 +5342,7 @@ MonoBehaviour:
   - {fileID: 1271921427}
   - {fileID: 1662838943}
   - {fileID: 1260931724}
-  tiempoEntreAtaques: 3.5
+  tiempoEntreAtaques: 1.4
 --- !u!114 &883529014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5450,7 +5450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntoAtaque: {fileID: 856683820}
   rangoAtaque: 1.5
-  danio: 10
+  danio: 15
   anim: {fileID: 0}
 --- !u!114 &904475250
 MonoBehaviour:
@@ -5475,7 +5475,7 @@ MonoBehaviour:
   - {fileID: 1260931724}
   - {fileID: 1662838943}
   - {fileID: 1823731469}
-  tiempoEntreAtaques: 3.5
+  tiempoEntreAtaques: 1.4
 --- !u!114 &904475251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5791,7 +5791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntoAtaque: {fileID: 371116619}
   rangoAtaque: 1.5
-  danio: 10
+  danio: 15
   anim: {fileID: 0}
 --- !u!114 &1051561932
 MonoBehaviour:
@@ -5816,7 +5816,7 @@ MonoBehaviour:
   - {fileID: 1271921427}
   - {fileID: 1823731469}
   - {fileID: 1662838943}
-  tiempoEntreAtaques: 3.5
+  tiempoEntreAtaques: 1.4
 --- !u!114 &1051561933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6322,7 +6322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntoAtaque: {fileID: 502635525}
   rangoAtaque: 1.5
-  danio: 10
+  danio: 15
   anim: {fileID: 0}
 --- !u!114 &1471888032
 MonoBehaviour:
@@ -6347,7 +6347,7 @@ MonoBehaviour:
   - {fileID: 1271921427}
   - {fileID: 1662838943}
   - {fileID: 1260931724}
-  tiempoEntreAtaques: 3.5
+  tiempoEntreAtaques: 1.4
 --- !u!114 &1471888033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7798,7 +7798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntoAtaque: {fileID: 893283597}
   rangoAtaque: 1.5
-  danio: 10
+  danio: 15
   anim: {fileID: 0}
 --- !u!114 &1908093928
 MonoBehaviour:
@@ -7823,7 +7823,7 @@ MonoBehaviour:
   - {fileID: 1271921427}
   - {fileID: 1823731469}
   - {fileID: 1260931724}
-  tiempoEntreAtaques: 3.5
+  tiempoEntreAtaques: 1.4
 --- !u!114 &1908093929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8591,7 +8591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntoAtaque: {fileID: 1598693774}
   rangoAtaque: 1.5
-  danio: 10
+  danio: 15
   anim: {fileID: 0}
 --- !u!114 &1966294095
 MonoBehaviour:
@@ -8616,7 +8616,7 @@ MonoBehaviour:
   - {fileID: 1271921427}
   - {fileID: 1823731469}
   - {fileID: 1662838943}
-  tiempoEntreAtaques: 3.5
+  tiempoEntreAtaques: 1.4
 --- !u!114 &1966294096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9603,7 +9603,7 @@ PrefabInstance:
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0011911374
+      value: -0.0011911371
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
@@ -9618,7 +9618,7 @@ PrefabInstance:
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.008158046
+      value: -0.008158045
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
@@ -9891,6 +9891,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052146077}
     m_Modifications:
+    - target: {fileID: 6859758151245409436, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
+        type: 3}
+      propertyPath: danio
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6859758151245409439, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
         type: 3}
       propertyPath: player
@@ -9916,6 +9921,11 @@ PrefabInstance:
       propertyPath: puntosPatrulla.Array.data[3]
       value: 
       objectReference: {fileID: 1260931724}
+    - target: {fileID: 6859758151245409439, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
+        type: 3}
+      propertyPath: tiempoEntreAtaques
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6859758151801177585, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
         type: 3}
       propertyPath: m_StaticEditorFlags

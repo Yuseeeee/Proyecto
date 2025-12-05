@@ -2734,7 +2734,7 @@ MonoBehaviour:
   puntoAtaque: {fileID: 780654758}
   rangoAtaque: 1.8
   danio: 20
-  tiempoEntreGolpes: 0.7
+  tiempoEntreGolpes: 0.9
 --- !u!1 &1692263499
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,33 +3,26 @@ using UnityEngine.SceneManagement;
 
 public class NivelCasa : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public string nombreNivel; 
+
+     private void Start()
     {
-
-        if (other.gameObject.name == "SimpleFPSController")
+        if (CuboManger.instance != null && CuboManger.instance.EstaTocado(gameObject.name))
         {
-            Debug.Log("Cargando escena...");
-
-            string nombreDelCubo = gameObject.name;
-            
-            switch (nombreDelCubo)
-            {
-                case "cubo azul": 
-                    SceneManager.LoadScene("NivelUno");
-                    break;
-
-                case "cubo rojo": 
-                    SceneManager.LoadScene("NivelDos");
-                    break;
-                
-                case "cubo amarillo": 
-                    SceneManager.LoadScene("NivelTres");
-                    break;
-
-                case "cubo verde": 
-                    SceneManager.LoadScene("NivelCuatro");
-                    break;
-            }
+            Destroy(gameObject);
         }
     }
+        private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (CuboManger.instance != null)
+                CuboManger.instance.RegistrarCuboTocado(gameObject.name);
+
+            Destroy(gameObject);
+
+            SceneManager.LoadScene(nombreNivel);
+        }
+    }
+
 }

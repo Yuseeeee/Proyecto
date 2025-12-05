@@ -1061,6 +1061,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &451488097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451488099}
+  - component: {fileID: 451488098}
+  m_Layer: 0
+  m_Name: CuboManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &451488098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451488097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: debea17168027714eb7d232df5b47a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubosTocados: []
+--- !u!4 &451488099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451488097}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.033737, y: 1.073737, z: 5.4861116}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457655172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,7 +1508,7 @@ GameObject:
   - component: {fileID: 1321494853}
   - component: {fileID: 1321494852}
   m_Layer: 0
-  m_Name: 'cubo '
+  m_Name: cubo rojo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1479,10 +1523,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1321494851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a517d1c0c32cb047affab60d79ed7ba, type: 3}
+  m_Script: {fileID: 11500000, guid: fb474bd5ae0d6a74f82b3d9a29e4157f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapaPrevio: NivelUno
+  nombreNivel: NivelUno
 --- !u!65 &1321494853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1513,7 +1557,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e14729ceea4b1d647af36c95dda6dc2b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2458,7 +2502,7 @@ GameObject:
   - component: {fileID: 2053230002}
   - component: {fileID: 2053230001}
   m_Layer: 0
-  m_Name: cubo (1)
+  m_Name: cubo azul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2473,10 +2517,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2053230000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a517d1c0c32cb047affab60d79ed7ba, type: 3}
+  m_Script: {fileID: 11500000, guid: fb474bd5ae0d6a74f82b3d9a29e4157f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapaPrevio: NivelDos
+  nombreNivel: NivelDos
 --- !u!65 &2053230002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2507,7 +2551,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 581d8d62c821c364fa771522875c64fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2563,7 +2607,7 @@ GameObject:
   - component: {fileID: 2123599470}
   - component: {fileID: 2123599469}
   m_Layer: 0
-  m_Name: cubo (2)
+  m_Name: cubo verde
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2578,10 +2622,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2123599468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a517d1c0c32cb047affab60d79ed7ba, type: 3}
+  m_Script: {fileID: 11500000, guid: fb474bd5ae0d6a74f82b3d9a29e4157f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapaPrevio: NivelJefe
+  nombreNivel: NivelJefe
 --- !u!65 &2123599470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2612,7 +2656,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2d8e70b3897f6db40acf0071c1a4272f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
