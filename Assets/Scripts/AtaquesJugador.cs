@@ -13,15 +13,18 @@ public class AtaquesJugador : MonoBehaviour
     public LayerMask capasEnemigas;
     public float rangoPunio = 1f;
     public float rangoPatada = 1.5f;
-    public int danioPunio = 25;
-    public int danioPatada = 20;
+    int danioPunio;
+    int danioPatada;
     public float duracionAnimacionPunio = 0.4f;
     public float duracionAnimacionPatada = 0.6f;
-
+    public int baseDanioPunio = 75;   
+    public int baseDanioPatada = 80;
     void Start()
     {
         controlMovimiento = GetComponent<ThirdPersonUserControl>();
         character = GetComponent<ThirdPersonCharacter>();
+        danioPunio = baseDanioPunio + UpdateManager.Instance.extraDanioPunio;
+        danioPatada = baseDanioPatada + UpdateManager.Instance.extraDanioPatada;
     }
 
     void Update()
@@ -106,6 +109,19 @@ public class AtaquesJugador : MonoBehaviour
 
         controlMovimiento.bloqueado = false;
         isAttacking = false;
+    }
+    public void MejorarPunio(int cantidad)
+    {
+        UpdateManager.Instance.AddPunio(cantidad);
+        danioPunio += cantidad;
+        Debug.Log("Mejoraste el puño +" + cantidad);
+    }
+
+    public void MejorarPatada(int cantidad)
+    { 
+        UpdateManager.Instance.AddPatada(cantidad);  
+        danioPatada += cantidad;
+        Debug.Log("Mejoraste la patada +" + cantidad);
     }
 
     private void OnDrawGizmos()

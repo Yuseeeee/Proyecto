@@ -1095,9 +1095,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 90
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &110659244
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1895,9 +1896,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 90
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &187093006
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2198,9 +2200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 90
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &482317308
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5355,9 +5358,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 90
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &883529015
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5488,9 +5492,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 90
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &904475252
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5829,9 +5834,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 90
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &1051561934
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6360,9 +6366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 90
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &1471888034
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7836,9 +7843,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 90
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &1908093930
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8629,9 +8637,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 90
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &1966294097
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9603,22 +9612,22 @@ PrefabInstance:
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0011911371
+      value: -0.0011644764
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9894747
+      value: 0.9894762
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.14447092
+      value: -0.14447115
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.008158045
+      value: -0.007975444
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
@@ -9659,6 +9668,21 @@ PrefabInstance:
       propertyPath: sliderVida
       value: 
       objectReference: {fileID: 526394933}
+    - target: {fileID: 5791228780472733531, guid: e46e7b4f9bf227046bd93982699f420a,
+        type: 3}
+      propertyPath: danioPunio
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791228780472733531, guid: e46e7b4f9bf227046bd93982699f420a,
+        type: 3}
+      propertyPath: baseDanioPunio
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791228780472733531, guid: e46e7b4f9bf227046bd93982699f420a,
+        type: 3}
+      propertyPath: baseDanioPatada
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 5791228780472764877, guid: e46e7b4f9bf227046bd93982699f420a,
         type: 3}
       propertyPath: m_Name
@@ -9895,6 +9919,11 @@ PrefabInstance:
         type: 3}
       propertyPath: danio
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859758151245409438, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
+        type: 3}
+      propertyPath: vidaMaxima
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6859758151245409439, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
         type: 3}

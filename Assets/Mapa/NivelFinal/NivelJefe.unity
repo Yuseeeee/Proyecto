@@ -552,22 +552,22 @@ PrefabInstance:
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14447095
+      value: 0.14447115
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.008158044
+      value: 0.007975442
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0011911374
+      value: -0.0011644762
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9894747
+      value: 0.9894762
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
@@ -900,6 +900,16 @@ PrefabInstance:
         type: 3}
       propertyPath: capasEnemigas.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791228780472733531, guid: e46e7b4f9bf227046bd93982699f420a,
+        type: 3}
+      propertyPath: baseDanioPunio
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791228780472733531, guid: e46e7b4f9bf227046bd93982699f420a,
+        type: 3}
+      propertyPath: baseDanioPatada
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5791228780472764877, guid: e46e7b4f9bf227046bd93982699f420a,
         type: 3}
@@ -2729,7 +2739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57373d50e7c0cce4094cbc9bb5e1b855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 450
+  vidaMaxima: 250
   vidaActual: 0
   anim: {fileID: 0}
 --- !u!114 &1642021065

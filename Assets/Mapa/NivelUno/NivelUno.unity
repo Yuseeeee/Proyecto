@@ -774,22 +774,22 @@ PrefabInstance:
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14447093
+      value: 0.14447114
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.008158044
+      value: 0.007975442
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0011911372
+      value: -0.001164476
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9894747
+      value: 0.9894762
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
@@ -1294,6 +1294,11 @@ PrefabInstance:
       propertyPath: sliderVida
       value: 
       objectReference: {fileID: 583128738}
+    - target: {fileID: 5791228780472733531, guid: e46e7b4f9bf227046bd93982699f420a,
+        type: 3}
+      propertyPath: baseDanioPunio
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 5791228780472764877, guid: e46e7b4f9bf227046bd93982699f420a,
         type: 3}
       propertyPath: m_Name
@@ -2458,9 +2463,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 75
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &1056218009568618564
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2923,9 +2929,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 75
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &1056218010002537748
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3078,9 +3085,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 75
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &1056218010225969612
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3962,9 +3970,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac79c23e16de2045a12b50e6a4e1e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 85
+  vidaMaxima: 75
   vidaActual: 0
   anim: {fileID: 0}
+  puntos: 10
 --- !u!195 &1056218010793115930
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4399,6 +4408,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1056218010139542053}
     m_Modifications:
+    - target: {fileID: 6859758151245409438, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
+        type: 3}
+      propertyPath: vidaMaxima
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 6859758151245409439, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
         type: 3}
       propertyPath: puntosPatrulla.Array.size
