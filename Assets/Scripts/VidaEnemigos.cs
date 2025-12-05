@@ -5,7 +5,7 @@ public class VidaEnemigos : MonoBehaviour
     public int vidaMaxima = 100;
     public int vidaActual;
     public Animator anim;
-
+    public int puntos = 10;
     void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -28,6 +28,7 @@ public class VidaEnemigos : MonoBehaviour
 
     void Morir()
     {
+        ScoreManager.Instance.AddPoints(puntos);
         GameManager.instance.EnemigoEliminado();
         Destroy(gameObject);
     }
