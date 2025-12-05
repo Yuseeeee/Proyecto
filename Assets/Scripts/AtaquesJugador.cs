@@ -70,8 +70,6 @@ public class AtaquesJugador : MonoBehaviour
 
     void AplicarDanio(Transform punto, float rango, int danio)
     {
-        Debug.Log("Chequeando OverlapSphere en: " + punto.name);
-
         Collider[] hits = Physics.OverlapSphere(punto.position, rango, capasEnemigas);
         Debug.Log("Detectados: " + hits.Length);
 
@@ -113,14 +111,14 @@ public class AtaquesJugador : MonoBehaviour
     public void MejorarPunio(int cantidad)
     {
         UpdateManager.Instance.AddPunio(cantidad);
-        danioPunio += cantidad;
+        danioPunio = baseDanioPunio + UpdateManager.Instance.extraDanioPunio;
         Debug.Log("Mejoraste el puño +" + cantidad);
     }
 
     public void MejorarPatada(int cantidad)
     { 
-        UpdateManager.Instance.AddPatada(cantidad);  
-        danioPatada += cantidad;
+        UpdateManager.Instance.AddPatada(cantidad);
+        danioPatada = baseDanioPatada + UpdateManager.Instance.extraDanioPatada;  
         Debug.Log("Mejoraste la patada +" + cantidad);
     }
 

@@ -25,7 +25,6 @@ public class DanioEnemigos : MonoBehaviour
                 if (vida != null)
                 {
                     vida.RecibirDanio(danio);
-                    Debug.Log("DAÑO APLICADO EXACTO EN EL FRAME DEL GOLPE");
                 }
             }
         }
