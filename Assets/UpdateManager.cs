@@ -3,7 +3,6 @@
 public class UpdateManager : MonoBehaviour
 {
     public static UpdateManager Instance;
-
     public int extraDanioPunio = 0;
     public int extraDanioPatada = 0;
 
