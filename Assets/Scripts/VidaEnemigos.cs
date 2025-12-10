@@ -6,6 +6,9 @@ public class VidaEnemigos : MonoBehaviour
     public int vidaActual;
     public Animator anim;
     public int puntos = 10;
+
+    bool muerto = false;
+
     void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -19,18 +22,31 @@ public class VidaEnemigos : MonoBehaviour
 
     public void RecibirDanio(int cantidad)
     {
-        anim.SetTrigger("Hit");
+        if (muerto) return;
+
         vidaActual -= cantidad;
 
         if (vidaActual <= 0)
+        {
             Morir();
+            return;
+        }
+
+        anim.SetTrigger("Hit"); 
     }
 
     void Morir()
     {
+        muerto = true;
+
+        var agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        if (agent != null) agent.enabled = false;
+
+        anim.SetTrigger("Dead");
+
         ScoreManager.Instance.AddPoints(puntos);
         GameManager.instance.EnemigoEliminado();
-        Destroy(gameObject);
-    }
 
+        Destroy(gameObject, 2f);
+    }
 }
