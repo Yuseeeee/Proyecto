@@ -6215,7 +6215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a517d1c0c32cb047affab60d79ed7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapaPrevio: NivelDos
+  MapaPrevio: NivelUno
 --- !u!23 &1321494855
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10016,7 +10016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb474bd5ae0d6a74f82b3d9a29e4157f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreNivel: 
+  nombreNivel: NivelDos
 --- !u!65 &2053230002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10390,7 +10390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb474bd5ae0d6a74f82b3d9a29e4157f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreNivel: 
+  nombreNivel: NivelJefe
 --- !u!65 &2123599470
 BoxCollider:
   m_ObjectHideFlags: 0
