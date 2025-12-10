@@ -19,8 +19,8 @@ public class VidaEnemigos : MonoBehaviour
 
     public void RecibirDanio(int cantidad)
     {
-        vidaActual -= cantidad;
         anim.SetTrigger("Hit");
+        vidaActual -= cantidad;
 
         if (vidaActual <= 0)
             Morir();
@@ -33,7 +33,4 @@ public class VidaEnemigos : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Golpeado()
-    {
-    }
 }

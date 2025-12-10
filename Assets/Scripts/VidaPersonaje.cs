@@ -9,9 +9,11 @@ public class VidaPersonaje : MonoBehaviour
     public int vidaMaxima = 100;
     public int vidaActual;
     public Slider sliderVida;
+    public Animator anim;
 
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         vidaActual = vidaMaxima;
         
          if (sliderVida != null)
@@ -25,7 +27,9 @@ public class VidaPersonaje : MonoBehaviour
 
     public void RecibirDanio(int cantidadDeDanio)
     {
+    anim.SetTrigger("IsHit");
     vidaActual -= cantidadDeDanio;
+
     Debug.Log("Vida actual: " + vidaActual);
 
     if (sliderVida != null)
