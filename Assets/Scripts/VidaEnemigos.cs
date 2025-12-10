@@ -38,9 +38,8 @@ public class VidaEnemigos : MonoBehaviour
     void Morir()
     {
         muerto = true;
-
-        var agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        if (agent != null) agent.enabled = false;
+        GetComponent<ObjetivoEnemigos>().enabled = false;
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false; 
 
         anim.SetTrigger("Dead");
 
