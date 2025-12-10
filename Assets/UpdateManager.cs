@@ -23,16 +23,17 @@ public class UpdateManager : MonoBehaviour
     }
 
     public void AddPunio(int cantidad)
-    {
-        extraDanioPunio += cantidad;
-        PlayerPrefs.Save();
-        Debug.Log("UpdateManager: extraDanioPunio = " + extraDanioPunio);
-    }
+{
+    extraDanioPunio += cantidad;
+    PlayerPrefs.SetInt("extraDanioPunio", extraDanioPunio);
+    PlayerPrefs.Save();
+}
 
-    public void AddPatada(int cantidad)
-    {
-        extraDanioPatada += cantidad;
-        PlayerPrefs.Save();
-        Debug.Log("UpdateManager: extraDanioPatada = " + extraDanioPatada);
-    }
+public void AddPatada(int cantidad)
+{
+    extraDanioPatada += cantidad;
+    PlayerPrefs.SetInt("extraDanioPatada", extraDanioPatada);
+    PlayerPrefs.Save();
+}
+
 }
