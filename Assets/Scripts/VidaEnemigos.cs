@@ -40,12 +40,9 @@ public class VidaEnemigos : MonoBehaviour
         muerto = true;
         GetComponent<ObjetivoEnemigos>().enabled = false;
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false; 
-
         anim.SetTrigger("Dead");
-
         ScoreManager.Instance.AddPoints(puntos);
         GameManager.instance.EnemigoEliminado();
-
         Destroy(gameObject, 2f);
     }
 }
