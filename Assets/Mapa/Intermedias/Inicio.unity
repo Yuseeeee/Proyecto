@@ -9981,6 +9981,7 @@ GameObject:
   - component: {fileID: 2053230004}
   - component: {fileID: 2053230003}
   - component: {fileID: 2053230002}
+  - component: {fileID: 2053230001}
   m_Layer: 0
   m_Name: cubo azul
   m_TagString: Untagged
@@ -9988,6 +9989,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!114 &2053230001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053230000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a517d1c0c32cb047affab60d79ed7ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapaPrevio: NivelDos
 --- !u!65 &2053230002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10341,6 +10355,7 @@ GameObject:
   - component: {fileID: 2123599472}
   - component: {fileID: 2123599471}
   - component: {fileID: 2123599470}
+  - component: {fileID: 2123599469}
   m_Layer: 0
   m_Name: cubo verde
   m_TagString: Untagged
@@ -10348,6 +10363,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!114 &2123599469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123599468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a517d1c0c32cb047affab60d79ed7ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapaPrevio: NivelJefe
 --- !u!65 &2123599470
 BoxCollider:
   m_ObjectHideFlags: 0
