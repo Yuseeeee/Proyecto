@@ -11,8 +11,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_CamForward;
         private Vector3 m_Move;
 
-        // ahora es público para que AtaquesJugador lo pueda activar/desactivar
         public bool bloqueado = false;
+        private bool jumpPressed = false;
 
         private void Start()
         {
@@ -22,20 +22,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Character = GetComponent<ThirdPersonCharacter>();
         }
 
+        private void Update()
+        {
+            jumpPressed = Input.GetKeyDown(KeyCode.Space);
+        }
+
         private void FixedUpdate()
         {
-            // BLOQUEO DE MOVIMIENTO
             if (bloqueado)
             {
-                m_Move = Vector3.zero;
-                m_Character.Move(Vector3.zero);
+                m_Character.Move(Vector3.zero, false);
                 return;
             }
 
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
 
-            // Dirección según cámara
             if (m_Cam != null)
             {
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
@@ -46,16 +48,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_Move = v * Vector3.forward + h * Vector3.right;
             }
 
-            // Correr con Shift izquierdo
             if (v > 0.1f && Input.GetKey(KeyCode.LeftShift))
                 m_Character.SetMoveSpeedMultiplier(3f);
             else
                 m_Character.SetMoveSpeedMultiplier(1.5f);
 
-            m_Character.Move(m_Move);
+            m_Character.Move(m_Move, jumpPressed);
+            jumpPressed = false;
         }
 
-        // Hard Reset para ataques
         public void HardResetInputs()
         {
             m_Move = Vector3.zero;
