@@ -1815,6 +1815,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: a035ecafbb0a8a3459e726f7a8dcb26d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ba9a7657b42a88047bdd1aec9146a2f0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a035ecafbb0a8a3459e726f7a8dcb26d, type: 3}
 --- !u!1 &128979654 stripped
@@ -7280,6 +7284,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puerta con colliders
       objectReference: {fileID: 0}
+    - target: {fileID: 6761715811533234194, guid: 71a50f3781a14274782717b9a56fcd63,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71a50f3781a14274782717b9a56fcd63, type: 3}
 --- !u!1 &1729922698 stripped
@@ -10102,22 +10111,22 @@ PrefabInstance:
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0012026794
+      value: -0.0012885656
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.98947406
+      value: 0.989469
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.14447083
+      value: -0.14447007
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0082370965
+      value: -0.008825328
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
@@ -10153,6 +10162,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5791228780472733526, guid: e46e7b4f9bf227046bd93982699f420a,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 5791228780472733530, guid: e46e7b4f9bf227046bd93982699f420a,
         type: 3}
       propertyPath: sliderVida
