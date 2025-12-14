@@ -1182,22 +1182,22 @@ PrefabInstance:
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14447023
+      value: 0.14447297
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.008825326
+      value: 0.006372469
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0012885669
+      value: -0.0009304304
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.989469
+      value: 0.9894878
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
@@ -10008,7 +10008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a517d1c0c32cb047affab60d79ed7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapaSig: 
+  MapaSig: NivelDos
 --- !u!65 &2053230002
 BoxCollider:
   m_ObjectHideFlags: 0
