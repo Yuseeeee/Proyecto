@@ -3,13 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class CambioDeEscena : MonoBehaviour
 {
-    public string MapaPrevio;
+    public string MapaSig;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(MapaPrevio);
+            SceneManager.LoadScene(MapaSig);
         }
     }
 }

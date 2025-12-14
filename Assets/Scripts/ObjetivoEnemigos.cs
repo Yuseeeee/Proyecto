@@ -72,11 +72,11 @@ public class ObjetivoEnemigos : MonoBehaviour
     {
         atacando = true;
         agent.isStopped = true;
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+        agent.velocity = Vector3.zero;   
         anim.SetTrigger("Attack");
-        anim.SetFloat("Speed", 0f);
         Invoke(nameof(FinAtaque), 0.8f);
-        anim.ResetTrigger("Attack");
-        anim.SetTrigger("Attack");
 
     }
 
@@ -84,6 +84,7 @@ public class ObjetivoEnemigos : MonoBehaviour
     {
         atacando = false;
         agent.isStopped = false;
+        agent.updateRotation = true;
     }
 
     void PerseguirJugador()
