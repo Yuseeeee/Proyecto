@@ -3779,22 +3779,38 @@ PrefabInstance:
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.x
+<<<<<<< HEAD
       value: 0.14447282
+=======
+      value: 0.14447005
+>>>>>>> 7daf68d23d3ffe953c52968c50bf46eb13e95d83
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.y
+<<<<<<< HEAD
       value: 0.006369424
+=======
+      value: 0.008825327
+>>>>>>> 7daf68d23d3ffe953c52968c50bf46eb13e95d83
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.z
+<<<<<<< HEAD
       value: -0.00092998496
+=======
+      value: -0.0012885653
+>>>>>>> 7daf68d23d3ffe953c52968c50bf46eb13e95d83
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
       propertyPath: m_LocalRotation.w
+<<<<<<< HEAD
       value: 0.9894878
+=======
+      value: 0.989469
+>>>>>>> 7daf68d23d3ffe953c52968c50bf46eb13e95d83
       objectReference: {fileID: 0}
     - target: {fileID: 4785753315734903812, guid: 1553288a8e080cc49ae54c0b8c146902,
         type: 3}
@@ -5324,11 +5340,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a035ecafbb0a8a3459e726f7a8dcb26d, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a035ecafbb0a8a3459e726f7a8dcb26d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 19.1
+=======
+      value: -22.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a035ecafbb0a8a3459e726f7a8dcb26d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6
+>>>>>>> 7daf68d23d3ffe953c52968c50bf46eb13e95d83
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a035ecafbb0a8a3459e726f7a8dcb26d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5369,7 +5393,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: a035ecafbb0a8a3459e726f7a8dcb26d, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: ba9a7657b42a88047bdd1aec9146a2f0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a035ecafbb0a8a3459e726f7a8dcb26d, type: 3}
 --- !u!1 &1182575630
@@ -8980,7 +9004,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -9446,7 +9470,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -9513,7 +9537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1056218010139542053
 Transform:
   m_ObjectHideFlags: 0
@@ -9602,7 +9626,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -10487,7 +10511,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -10907,6 +10931,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1056218010139542053}
     m_Modifications:
+    - target: {fileID: 6859758151245409433, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6859758151245409438, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
         type: 3}
       propertyPath: vidaMaxima
@@ -10966,6 +10995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Walking
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859758152483098695, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6859758152483589223, guid: 55f3a0d8bc53f774a95591ccbba7e2d5,
         type: 3}

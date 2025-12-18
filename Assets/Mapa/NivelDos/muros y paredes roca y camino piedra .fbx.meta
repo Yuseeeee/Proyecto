@@ -116,7 +116,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: istockphoto-1339312029-612x612
-    second: {fileID: 2800000, guid: 0ea7ad29a28968947b086b5115479adf, type: 3}
+    second: {fileID: 2800000, guid: a887258d9a70b04428cc3997caa41544, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
